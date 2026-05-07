@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_vsl_transport_root"
+              name="Transport"
+              sequence="90"
+              web_icon="vsl_tasimacilik,static/description/icon.png"/>
+
+    <menuitem id="menu_vsl_transport_order"
+              name="Transport Orders"
+              parent="menu_vsl_transport_root"
+              action="action_vsl_transport_order"
+              sequence="10"/>
+
+    <record id="action_vsl_transport_order" model="ir.actions.act_window">
+        <field name="name">Transport Orders</field>
+        <field name="res_model">vsl.transport.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_vsl_transport_order_search"/>
+    </record>
+
+    <menuitem id="menu_vsl_carrier_document"
+              name="Carrier Documents"
+              parent="menu_vsl_transport_root"
+              action="action_vsl_carrier_document"
+              sequence="20"/>
+
+    <record id="action_vsl_vehicle_assignment" model="ir.actions.act_window">
+        <field name="name">Vehicle Assignments</field>
+        <field name="res_model">vsl.vehicle.assignment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_vsl_vehicle_assignment"
+              name="Vehicle Assignments"
+              parent="menu_vsl_transport_root"
+              action="action_vsl_vehicle_assignment"
+              sequence="30"/>
+
+    <menuitem id="menu_vsl_transport_config"
+              name="Configuration"
+              parent="menu_vsl_transport_root"
+              sequence="90"
+              groups="vsl_tasimacilik.group_vsl_transport_manager"/>
+
+</odoo>
