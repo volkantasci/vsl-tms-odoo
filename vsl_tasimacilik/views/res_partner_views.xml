@@ -10,14 +10,14 @@
                 <group string="Carrier Information" name="carrier_info">
                     <field name="is_carrier"/>
                     <field name="carrier_tax_office"
-                           attrs="{'invisible': [('is_carrier', '=', False)]}"/>
+                          />
                     <field name="carrier_tax_number"
-                           attrs="{'invisible': [('is_carrier', '=', False)]}"/>
+                          />
                 </group>
             </xpath>
             <xpath expr="//page[@name='sales_purchases']" position="after">
                 <page string="Documents" name="carrier_documents"
-                      attrs="{'invisible': [('is_carrier', '=', False)]}">
+                     >
                     <field name="carrier_document_ids" mode="tree,form">
                         <tree string="Documents" editable="bottom">
                             <field name="doc_type"/>

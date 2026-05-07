@@ -10,19 +10,19 @@
                     <field name="customer_invoice"/>
                     <field name="customer_invoice_amount"
                            widget="monetary"
-                           attrs="{'required': [('customer_invoice', '=', True)], 'invisible': [('customer_invoice', '=', False)]}"/>
+                          />
                     <field name="customer_invoice_description"
-                           attrs="{'invisible': [('customer_invoice', '=', False)]}"/>
+                          />
                 </group>
                 <group string="Supplier Invoice">
                     <field name="supplier_invoice"/>
                     <field name="supplier_id"
-                           attrs="{'required': [('supplier_invoice', '=', True)], 'invisible': [('supplier_invoice', '=', False)]}"/>
+                          />
                     <field name="supplier_invoice_amount"
                            widget="monetary"
-                           attrs="{'required': [('supplier_invoice', '=', True)], 'invisible': [('supplier_invoice', '=', False)]}"/>
+                          />
                     <field name="supplier_invoice_description"
-                           attrs="{'invisible': [('supplier_invoice', '=', False)]}"/>
+                          />
                 </group>
                 <group string="Extra Line Items (Insurance, Customs, Storage, etc.)">
                     <field name="extra_line_ids" mode="tree">

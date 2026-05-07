@@ -15,7 +15,7 @@
     <record id="action_vsl_transport_order" model="ir.actions.act_window">
         <field name="name">Transport Orders</field>
         <field name="res_model">vsl.transport.order</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_vsl_transport_order_search"/>
     </record>
 
@@ -28,7 +28,7 @@
     <record id="action_vsl_vehicle_assignment" model="ir.actions.act_window">
         <field name="name">Vehicle Assignments</field>
         <field name="res_model">vsl.vehicle.assignment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_vsl_vehicle_assignment"

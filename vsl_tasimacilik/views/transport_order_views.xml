@@ -5,7 +5,7 @@
         <field name="name">vsl.transport.order.tree</field>
         <field name="model">vsl.transport.order</field>
         <field name="arch" type="xml">
-            <tree string="Transport Orders" decoration-danger="state == 'cancelled'"
+            <list string="Transport Orders" decoration-danger="state == 'cancelled'"
                   decoration-success="state == 'invoiced'">
                 <field name="name"/>
                 <field name="customer_id"/>
@@ -26,24 +26,24 @@
                 <header>
                     <button name="action_confirm" type="object"
                             string="Confirm" class="btn-primary"
-                            states="draft"/>
+                           />
                     <button name="action_start_loading" type="object"
                             string="Start Loading" class="btn-primary"
-                            states="assigned"/>
+                           />
                     <button name="action_depart" type="object"
                             string="Depart" class="btn-primary"
-                            states="loading"/>
+                           />
                     <button name="action_deliver" type="object"
                             string="Deliver" class="btn-primary"
-                            states="in_transit"/>
+                           />
                     <button name="action_view_history" type="object"
                             string="View History" class="btn-secondary"
-                            states="draft,open,assigned"/>
+                           />
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
                             string="Create Invoices" class="btn-primary"
-                            states="delivered"/>
+                           />
                     <button name="action_cancel" type="object"
-                            string="Cancel" states="draft,open,assigned,loading,in_transit,delivered"/>
+                            string="Cancel"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -122,9 +122,9 @@
                                     <group>
                                         <field name="order_id" invisible="1"/>
                                         <field name="vehicle_id"
-                                               attrs="{'required': [('external_vehicle_plate', '=', False)]}"/>
+                                              />
                                         <field name="external_vehicle_plate"
-                                               attrs="{'required': [('vehicle_id', '=', False)]}"/>
+                                              />
                                         <field name="driver_id"/>
                                         <field name="assignment_date"/>
                                     </group>
