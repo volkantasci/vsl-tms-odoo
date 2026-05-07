@@ -6,13 +6,31 @@
         <field name="model">vsl.vehicle.assignment</field>
         <field name="arch" type="xml">
             <list string="Araç Atamaları">
-                <field name="order_id"/>
                 <field name="vehicle_id"/>
                 <field name="external_vehicle_plate"/>
                 <field name="driver_id"/>
                 <field name="assignment_date"/>
                 <field name="state"/>
             </list>
+        </field>
+    </record>
+
+    <record id="view_vsl_vehicle_assignment_form" model="ir.ui.view">
+        <field name="name">vsl.vehicle.assignment.form</field>
+        <field name="model">vsl.vehicle.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Araç Ataması">
+                <sheet>
+                    <group>
+                        <field name="order_id"/>
+                        <field name="vehicle_id"/>
+                        <field name="external_vehicle_plate"/>
+                        <field name="driver_id"/>
+                        <field name="assignment_date"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 

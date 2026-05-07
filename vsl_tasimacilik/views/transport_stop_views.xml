@@ -6,13 +6,39 @@
         <field name="model">vsl.transport.stop</field>
         <field name="arch" type="xml">
             <list string="Duraklar">
-                <field name="order_id"/>
                 <field name="sequence" widget="handle"/>
                 <field name="stop_type"/>
                 <field name="address_id"/>
                 <field name="planned_date"/>
+                <field name="actual_date"/>
                 <field name="state"/>
             </list>
+        </field>
+    </record>
+
+    <record id="view_vsl_transport_stop_form" model="ir.ui.view">
+        <field name="name">vsl.transport.stop.form</field>
+        <field name="model">vsl.transport.stop</field>
+        <field name="arch" type="xml">
+            <form string="Durak">
+                <sheet>
+                    <group>
+                        <field name="order_id"/>
+                        <field name="stop_type"/>
+                        <field name="sequence"/>
+                        <field name="address_id"/>
+                        <field name="planned_date"/>
+                        <field name="actual_date"/>
+                        <field name="state"/>
+                    </group>
+                    <group string="Durak Kalemleri">
+                        <field name="line_ids"/>
+                    </group>
+                    <group string="Notlar">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
