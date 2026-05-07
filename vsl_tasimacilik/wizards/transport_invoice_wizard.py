@@ -36,12 +36,6 @@ class VslTransportInvoiceWizard(models.TransientModel):
         string="Supplier Invoice Description",
     )
 
-    extra_line_ids = fields.One2many(
-        "vsl.transport.invoice.wizard.line",
-        "wizard_id",
-        string="Extra Items",
-    )
-
     currency_id = fields.Many2one(
         "res.currency",
         string="Currency",
@@ -75,42 +69,28 @@ class VslTransportInvoiceWizard(models.TransientModel):
             raise UserError(_("No customer set on the transport order."))
 
         if self.customer_invoice:
-            cus_inv_lines = [(0, 0, {
-                "name": self.customer_invoice_description or _("Transport Service"),
-                "quantity": 1,
-                "price_unit": self.customer_invoice_amount or 0,
-            })]
-            for line in self.extra_line_ids:
-                cus_inv_lines.append((0, 0, {
-                    "name": line.description or _("Extra Charge"),
-                    "quantity": line.quantity,
-                    "price_unit": line.price_unit,
-                }))
             customer_invoice = self.env["account.move"].create({
                 "move_type": "out_invoice",
                 "partner_id": customer.id,
                 "invoice_date": fields.Date.today(),
-                "invoice_line_ids": cus_inv_lines,
+                "invoice_line_ids": [(0, 0, {
+                    "name": self.customer_invoice_description or _("Transport Service"),
+                    "quantity": 1,
+                    "price_unit": self.customer_invoice_amount or 0,
+                })],
             })
             order.invoice_ids = [(4, customer_invoice.id)]
 
         if self.supplier_invoice and self.supplier_id:
-            sup_inv_lines = [(0, 0, {
-                "name": self.supplier_invoice_description or _("Transport Service"),
-                "quantity": 1,
-                "price_unit": self.supplier_invoice_amount or 0,
-            })]
-            for line in self.extra_line_ids:
-                sup_inv_lines.append((0, 0, {
-                    "name": line.description or _("Extra Charge"),
-                    "quantity": line.quantity,
-                    "price_unit": line.price_unit,
-                }))
             supplier_invoice = self.env["account.move"].create({
                 "move_type": "in_invoice",
                 "partner_id": self.supplier_id.id,
                 "invoice_date": fields.Date.today(),
-                "invoice_line_ids": sup_inv_lines,
+                "invoice_line_ids": [(0, 0, {
+                    "name": self.supplier_invoice_description or _("Transport Service"),
+                    "quantity": 1,
+                    "price_unit": self.supplier_invoice_amount or 0,
+                })],
             })
             order.invoice_ids = [(4, supplier_invoice.id)]
 
@@ -118,22 +98,3 @@ class VslTransportInvoiceWizard(models.TransientModel):
             order.state = "invoiced"
 
         return {"type": "ir.actions.act_window_close"}
-
-
-class VslTransportInvoiceWizardLine(models.TransientModel):
-    _name = "vsl.transport.invoice.wizard.line"
-    _description = "Transport Invoice Wizard Line"
-
-    wizard_id = fields.Many2one(
-        "vsl.transport.invoice.wizard",
-        string="Wizard",
-        required=True,
-        ondelete="cascade",
-    )
-    description = fields.Char(string="Description", required=True)
-    quantity = fields.Float(string="Quantity", default=1.0)
-    price_unit = fields.Monetary(string="Unit Price", currency_field="currency_id")
-    currency_id = fields.Many2one(
-        "res.currency",
-        related="wizard_id.currency_id",
-    )

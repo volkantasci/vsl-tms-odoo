@@ -14,7 +14,7 @@
                 <field name="planned_date_end"/>
                 <field name="amount_total" sum="Total"/>
                 <field name="currency_id" invisible="1"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -25,23 +25,17 @@
             <form string="Transport Order">
                 <header>
                     <button name="action_confirm" type="object"
-                            string="Confirm" class="btn-primary"
-                           />
+                            string="Confirm" class="btn-primary"/>
                     <button name="action_start_loading" type="object"
-                            string="Start Loading" class="btn-primary"
-                           />
+                            string="Start Loading" class="btn-primary"/>
                     <button name="action_depart" type="object"
-                            string="Depart" class="btn-primary"
-                           />
+                            string="Depart" class="btn-primary"/>
                     <button name="action_deliver" type="object"
-                            string="Deliver" class="btn-primary"
-                           />
+                            string="Deliver" class="btn-primary"/>
                     <button name="action_view_history" type="object"
-                            string="View History" class="btn-secondary"
-                           />
+                            string="View History" class="btn-secondary"/>
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
-                            string="Create Invoices" class="btn-primary"
-                           />
+                            string="Create Invoices" class="btn-primary"/>
                     <button name="action_cancel" type="object"
                             string="Cancel"/>
                     <field name="state" widget="statusbar"/>
@@ -66,70 +60,10 @@
                     </group>
                     <notebook>
                         <page string="Stops">
-                            <field name="stop_ids" mode="tree,form">
-                                <tree string="Stops" editable="bottom">
-                                    <field name="sequence" widget="handle"/>
-                                    <field name="stop_type"/>
-                                    <field name="address_id"/>
-                                    <field name="planned_date"/>
-                                    <field name="actual_date"/>
-                                    <field name="state"/>
-                                </tree>
-                                <form string="Stop">
-                                    <group>
-                                        <field name="order_id" invisible="1"/>
-                                        <field name="stop_type"/>
-                                        <field name="sequence"/>
-                                        <field name="address_id"/>
-                                        <field name="planned_date"/>
-                                        <field name="actual_date"/>
-                                        <field name="state"/>
-                                    </group>
-                                    <group string="Stop Lines">
-                                        <field name="line_ids" mode="tree,form">
-                                            <tree string="Stop Lines" editable="bottom">
-                                                <field name="customer_id"/>
-                                                <field name="product_desc"/>
-                                                <field name="quantity"/>
-                                                <field name="weight"/>
-                                            </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="customer_id"/>
-                                                    <field name="product_desc"/>
-                                                    <field name="quantity"/>
-                                                    <field name="weight"/>
-                                                </group>
-                                            </form>
-                                        </field>
-                                    </group>
-                                    <group string="Notes">
-                                        <field name="notes"/>
-                                    </group>
-                                </form>
-                            </field>
+                            <field name="stop_ids"/>
                         </page>
-                        <page string="Vehicle &amp; Driver">
-                            <field name="assignment_ids" mode="tree,form">
-                                <tree string="Assignments" editable="bottom">
-                                    <field name="vehicle_id"/>
-                                    <field name="external_vehicle_plate"/>
-                                    <field name="driver_id"/>
-                                    <field name="assignment_date"/>
-                                    <field name="state"/>
-                                </tree>
-                                <form>
-                                    <group>
-                                        <field name="order_id" invisible="1"/>
-                                        <field name="vehicle_id"
-                                              />
-                                        <field name="external_vehicle_plate"
-                                              />
-                                        <field name="driver_id"/>
-                                        <field name="assignment_date"/>
-                                    </group>
-                                </form>
-                            </field>
+                        <page string="Vehicle and Driver">
+                            <field name="assignment_ids"/>
                         </page>
                         <page string="Invoices">
                             <field name="invoice_ids"

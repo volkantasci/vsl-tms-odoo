@@ -8,30 +8,14 @@
             <form string="Create Invoices">
                 <group string="Customer Invoice">
                     <field name="customer_invoice"/>
-                    <field name="customer_invoice_amount"
-                           widget="monetary"
-                          />
-                    <field name="customer_invoice_description"
-                          />
+                    <field name="customer_invoice_amount" widget="monetary"/>
+                    <field name="customer_invoice_description"/>
                 </group>
                 <group string="Supplier Invoice">
                     <field name="supplier_invoice"/>
-                    <field name="supplier_id"
-                          />
-                    <field name="supplier_invoice_amount"
-                           widget="monetary"
-                          />
-                    <field name="supplier_invoice_description"
-                          />
-                </group>
-                <group string="Extra Line Items (Insurance, Customs, Storage, etc.)">
-                    <field name="extra_line_ids" mode="tree">
-                        <tree string="Extra Items" editable="bottom">
-                            <field name="description"/>
-                            <field name="quantity"/>
-                            <field name="price_unit" widget="monetary"/>
-                        </tree>
-                    </field>
+                    <field name="supplier_id"/>
+                    <field name="supplier_invoice_amount" widget="monetary"/>
+                    <field name="supplier_invoice_description"/>
                 </group>
                 <footer>
                     <button name="action_create_invoices" type="object"

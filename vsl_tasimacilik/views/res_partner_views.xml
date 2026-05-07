@@ -9,34 +9,13 @@
             <xpath expr="//page[@name='sales_purchases']" position="inside">
                 <group string="Carrier Information" name="carrier_info">
                     <field name="is_carrier"/>
-                    <field name="carrier_tax_office"
-                          />
-                    <field name="carrier_tax_number"
-                          />
+                    <field name="carrier_tax_office"/>
+                    <field name="carrier_tax_number"/>
                 </group>
             </xpath>
             <xpath expr="//page[@name='sales_purchases']" position="after">
-                <page string="Documents" name="carrier_documents"
-                     >
-                    <field name="carrier_document_ids" mode="tree,form">
-                        <tree string="Documents" editable="bottom">
-                            <field name="doc_type"/>
-                            <field name="attachment_id"/>
-                            <field name="issue_date"/>
-                            <field name="expiry_date"/>
-                            <field name="state" readonly="1"/>
-                        </tree>
-                        <form>
-                            <group>
-                                <field name="carrier_id" invisible="1"/>
-                                <field name="doc_type"/>
-                                <field name="attachment_id"/>
-                                <field name="issue_date"/>
-                                <field name="expiry_date"/>
-                                <field name="state" readonly="1"/>
-                            </group>
-                        </form>
-                    </field>
+                <page string="Documents" name="carrier_documents">
+                    <field name="carrier_document_ids"/>
                 </page>
             </xpath>
         </field>

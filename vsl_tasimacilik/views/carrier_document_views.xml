@@ -11,7 +11,7 @@
                 <field name="issue_date"/>
                 <field name="expiry_date"/>
                 <field name="state" readonly="1"/>
-            </tree>
+            </list>
         </field>
     </record>
 
