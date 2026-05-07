@@ -11,10 +11,9 @@ class TestTransportOrder(TransactionCase):
             [("name", "=", "TRY")], limit=1
         )
         if not self.currency_try:
-            self.currency_try = self.Currency.create({
-                "name": "TRY",
-                "symbol": "₺",
-            })
+            self.currency_try = self.env.ref("base.TRY", raise_if_not_found=False)
+        if not self.currency_try:
+            self.currency_try = self.env.company.currency_id
 
         self.customer = self.env["res.partner"].create({
             "name": "Test Customer",
