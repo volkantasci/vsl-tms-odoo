@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vsl_transport_order_user,vsl.transport.order.user,model_vsl_transport_order,group_vsl_transport_user,1,1,1,0
+access_vsl_transport_order_manager,vsl.transport.order.manager,model_vsl_transport_order,group_vsl_transport_manager,1,1,1,1
+access_vsl_transport_order_garage,vsl.transport.order.garage,model_vsl_transport_order,group_vsl_garage_operator,1,1,0,0
+access_vsl_transport_stop_user,vsl.transport.stop.user,model_vsl_transport_stop,group_vsl_transport_user,1,1,1,0
+access_vsl_transport_stop_manager,vsl.transport.stop.manager,model_vsl_transport_stop,group_vsl_transport_manager,1,1,1,1
+access_vsl_transport_stop_garage,vsl.transport.stop.garage,model_vsl_transport_stop,group_vsl_garage_operator,1,0,0,0
+access_vsl_transport_stop_line_user,vsl.transport.stop.line.user,model_vsl_transport_stop_line,group_vsl_transport_user,1,1,1,0
+access_vsl_transport_stop_line_manager,vsl.transport.stop.line.manager,model_vsl_transport_stop_line,group_vsl_transport_manager,1,1,1,1
+access_vsl_transport_stop_line_garage,vsl.transport.stop.line.garage,model_vsl_transport_stop_line,group_vsl_garage_operator,1,0,0,0
+access_vsl_vehicle_assignment_user,vsl.vehicle.assignment.user,model_vsl_vehicle_assignment,group_vsl_transport_user,1,1,1,0
+access_vsl_vehicle_assignment_manager,vsl.vehicle.assignment.manager,model_vsl_vehicle_assignment,group_vsl_transport_manager,1,1,1,1
+access_vsl_vehicle_assignment_garage,vsl.vehicle.assignment.garage,model_vsl_vehicle_assignment,group_vsl_garage_operator,1,1,1,0
+access_vsl_carrier_document_user,vsl.carrier.document.user,model_vsl_carrier_document,group_vsl_transport_user,1,0,0,0
+access_vsl_carrier_document_manager,vsl.carrier.document.manager,model_vsl_carrier_document,group_vsl_transport_manager,1,1,1,1
+access_vsl_carrier_document_garage,vsl.carrier.document.garage,model_vsl_carrier_document,group_vsl_garage_operator,1,1,1,1
