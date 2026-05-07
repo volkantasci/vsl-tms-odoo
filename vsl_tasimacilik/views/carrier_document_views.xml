@@ -5,7 +5,7 @@
         <field name="name">vsl.carrier.document.tree</field>
         <field name="model">vsl.carrier.document</field>
         <field name="arch" type="xml">
-            <list string="Documents" editable="bottom">
+            <list string="Evraklar" editable="bottom">
                 <field name="carrier_id"/>
                 <field name="doc_type"/>
                 <field name="issue_date"/>
@@ -19,7 +19,7 @@
         <field name="name">vsl.carrier.document.form</field>
         <field name="model">vsl.carrier.document</field>
         <field name="arch" type="xml">
-            <form string="Carrier Document">
+            <form string="Tedarikçi Evrakı">
                 <sheet>
                     <group>
                         <field name="carrier_id"/>
@@ -35,7 +35,7 @@
     </record>
 
     <record id="action_vsl_carrier_document" model="ir.actions.act_window">
-        <field name="name">Carrier Documents</field>
+        <field name="name">Tedarikçi Evrakları</field>
         <field name="res_model">vsl.carrier.document</field>
         <field name="view_mode">list,form</field>
     </record>

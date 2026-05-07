@@ -2,42 +2,42 @@
 <odoo>
 
     <menuitem id="menu_vsl_transport_root"
-              name="Transport"
+              name="Taşımacılık"
               sequence="90"/>
 
     <record id="action_vsl_transport_order" model="ir.actions.act_window">
-        <field name="name">Transport Orders</field>
+        <field name="name">Sevkiyat Emirleri</field>
         <field name="res_model">vsl.transport.order</field>
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_vsl_transport_order_search"/>
     </record>
 
     <menuitem id="menu_vsl_transport_order"
-              name="Transport Orders"
+              name="Sevkiyat Emirleri"
               parent="menu_vsl_transport_root"
               action="action_vsl_transport_order"
               sequence="10"/>
 
     <menuitem id="menu_vsl_carrier_document"
-              name="Carrier Documents"
+              name="Tedarikçi Evrakları"
               parent="menu_vsl_transport_root"
               action="action_vsl_carrier_document"
               sequence="20"/>
 
     <record id="action_vsl_vehicle_assignment" model="ir.actions.act_window">
-        <field name="name">Vehicle Assignments</field>
+        <field name="name">Araç Atamaları</field>
         <field name="res_model">vsl.vehicle.assignment</field>
         <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_vsl_vehicle_assignment"
-              name="Vehicle Assignments"
+              name="Araç Atamaları"
               parent="menu_vsl_transport_root"
               action="action_vsl_vehicle_assignment"
               sequence="30"/>
 
     <menuitem id="menu_vsl_transport_config"
-              name="Configuration"
+              name="Yapılandırma"
               parent="menu_vsl_transport_root"
               sequence="90"
               groups="vsl_tasimacilik.group_vsl_transport_manager"/>

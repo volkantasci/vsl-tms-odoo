@@ -5,13 +5,13 @@
         <field name="name">vsl.transport.invoice.wizard.form</field>
         <field name="model">vsl.transport.invoice.wizard</field>
         <field name="arch" type="xml">
-            <form string="Create Invoices">
-                <group string="Customer Invoice">
+            <form string="Fatura Oluştur">
+                <group string="Müşteri Faturası">
                     <field name="customer_invoice"/>
                     <field name="customer_invoice_amount" widget="monetary"/>
                     <field name="customer_invoice_description"/>
                 </group>
-                <group string="Supplier Invoice">
+                <group string="Tedarikçi Faturası">
                     <field name="supplier_invoice"/>
                     <field name="supplier_id"/>
                     <field name="supplier_invoice_amount" widget="monetary"/>
@@ -19,15 +19,15 @@
                 </group>
                 <footer>
                     <button name="action_create_invoices" type="object"
-                            string="Create Invoices" class="btn-primary"/>
-                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                            string="Fatura Oluştur" class="btn-primary"/>
+                    <button string="İptal" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
         </field>
     </record>
 
     <record id="action_vsl_transport_invoice_wizard" model="ir.actions.act_window">
-        <field name="name">Create Invoices</field>
+        <field name="name">Fatura Oluştur</field>
         <field name="res_model">vsl.transport.invoice.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

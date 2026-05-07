@@ -5,7 +5,7 @@
         <field name="name">vsl.vehicle.assignment.tree</field>
         <field name="model">vsl.vehicle.assignment</field>
         <field name="arch" type="xml">
-            <list string="Vehicle Assignments">
+            <list string="Araç Atamaları">
                 <field name="order_id"/>
                 <field name="vehicle_id"/>
                 <field name="external_vehicle_plate"/>

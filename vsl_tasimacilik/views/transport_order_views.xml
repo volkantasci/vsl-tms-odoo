@@ -5,7 +5,7 @@
         <field name="name">vsl.transport.order.tree</field>
         <field name="model">vsl.transport.order</field>
         <field name="arch" type="xml">
-            <list string="Transport Orders" decoration-danger="state == 'cancelled'"
+            <list string="Sevkiyat Emirleri" decoration-danger="state == 'cancelled'"
                   decoration-success="state == 'invoiced'">
                 <field name="name"/>
                 <field name="customer_id"/>
@@ -22,22 +22,22 @@
         <field name="name">vsl.transport.order.form</field>
         <field name="model">vsl.transport.order</field>
         <field name="arch" type="xml">
-            <form string="Transport Order">
+            <form string="Sevkiyat Emri">
                 <header>
                     <button name="action_confirm" type="object"
-                            string="Confirm" class="btn-primary"/>
+                            string="Onayla" class="btn-primary"/>
                     <button name="action_start_loading" type="object"
-                            string="Start Loading" class="btn-primary"/>
+                            string="Yüklemeye Başla" class="btn-primary"/>
                     <button name="action_depart" type="object"
-                            string="Depart" class="btn-primary"/>
+                            string="Yola Çıktı" class="btn-primary"/>
                     <button name="action_deliver" type="object"
-                            string="Deliver" class="btn-primary"/>
+                            string="Teslim Edildi" class="btn-primary"/>
                     <button name="action_view_history" type="object"
-                            string="View History" class="btn-secondary"/>
+                            string="Geçmiş Sevkiyatlar" class="btn-secondary"/>
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
-                            string="Create Invoices" class="btn-primary"/>
+                            string="Fatura Oluştur" class="btn-primary"/>
                     <button name="action_cancel" type="object"
-                            string="Cancel"/>
+                            string="İptal"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -45,12 +45,12 @@
                         <h1><field name="name"/></h1>
                     </div>
                     <group>
-                        <group string="Customer &amp; Dates">
+                        <group string="Müşteri ve Tarihler">
                             <field name="customer_id"/>
                             <field name="planned_date_start"/>
                             <field name="planned_date_end"/>
                         </group>
-                        <group string="Amount &amp; Actuals">
+                        <group string="Tutar ve Gerçekleşen">
                             <field name="amount_total" widget="monetary"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="company_id" invisible="1"/>
@@ -58,13 +58,13 @@
                             <field name="actual_date_end" readonly="1"/>
                         </group>
                     </group>
-                    <group string="Stops (Loading / Unloading Points)">
+                    <group string="Duraklar (Yükleme / Boşaltma)">
                         <field name="stop_ids"/>
                     </group>
-                    <group string="Vehicle &amp; Driver Assignment">
+                    <group string="Araç ve Sürücü Ataması">
                         <field name="assignment_ids"/>
                     </group>
-                    <group string="Notes">
+                    <group string="Notlar">
                         <field name="notes"/>
                     </group>
                 </sheet>
@@ -76,22 +76,22 @@
         <field name="name">vsl.transport.order.search</field>
         <field name="model">vsl.transport.order</field>
         <field name="arch" type="xml">
-            <search string="Search Transport Orders">
+            <search string="Sevkiyat Ara">
                 <field name="name"/>
                 <field name="customer_id"/>
-                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
-                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
-                <filter name="assigned" string="Assigned" domain="[('state', '=', 'assigned')]"/>
-                <filter name="loading" string="Loading" domain="[('state', '=', 'loading')]"/>
-                <filter name="in_transit" string="In Transit" domain="[('state', '=', 'in_transit')]"/>
-                <filter name="delivered" string="Delivered" domain="[('state', '=', 'delivered')]"/>
-                <filter name="invoiced" string="Invoiced" domain="[('state', '=', 'invoiced')]"/>
+                <filter name="draft" string="Taslak" domain="[('state', '=', 'draft')]"/>
+                <filter name="open" string="Açık" domain="[('state', '=', 'open')]"/>
+                <filter name="assigned" string="Atandı" domain="[('state', '=', 'assigned')]"/>
+                <filter name="loading" string="Yüklemede" domain="[('state', '=', 'loading')]"/>
+                <filter name="in_transit" string="Yolda" domain="[('state', '=', 'in_transit')]"/>
+                <filter name="delivered" string="Teslim Edildi" domain="[('state', '=', 'delivered')]"/>
+                <filter name="invoiced" string="Faturalandı" domain="[('state', '=', 'invoiced')]"/>
                 <separator/>
-                <filter name="active" string="Active"
+                <filter name="active" string="Aktif"
                         domain="[('state', 'not in', ['cancelled', 'invoiced'])]"/>
                 <group>
-                    <filter name="group_state" context="{'group_by': 'state'}" string="Status"/>
-                    <filter name="group_customer" context="{'group_by': 'customer_id'}" string="Customer"/>
+                    <filter name="group_state" context="{'group_by': 'state'}" string="Durum"/>
+                    <filter name="group_customer" context="{'group_by': 'customer_id'}" string="Müşteri"/>
                 </group>
             </search>
         </field>

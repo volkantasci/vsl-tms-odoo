@@ -5,7 +5,7 @@
         <field name="name">vsl.transport.stop.tree</field>
         <field name="model">vsl.transport.stop</field>
         <field name="arch" type="xml">
-            <list string="Stops">
+            <list string="Duraklar">
                 <field name="order_id"/>
                 <field name="sequence" widget="handle"/>
                 <field name="stop_type"/>
