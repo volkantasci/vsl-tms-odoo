@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vsl_transport_invoice_wizard" model="ir.ui.view">
+        <field name="name">vsl.transport.invoice.wizard.form</field>
+        <field name="model">vsl.transport.invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Invoices">
+                <group string="Customer Invoice">
+                    <field name="customer_invoice"/>
+                    <field name="customer_invoice_amount"
+                           widget="monetary"
+                           attrs="{'required': [('customer_invoice', '=', True)], 'invisible': [('customer_invoice', '=', False)]}"/>
+                    <field name="customer_invoice_description"
+                           attrs="{'invisible': [('customer_invoice', '=', False)]}"/>
+                </group>
+                <group string="Supplier Invoice">
+                    <field name="supplier_invoice"/>
+                    <field name="supplier_id"
+                           attrs="{'required': [('supplier_invoice', '=', True)], 'invisible': [('supplier_invoice', '=', False)]}"/>
+                    <field name="supplier_invoice_amount"
+                           widget="monetary"
+                           attrs="{'required': [('supplier_invoice', '=', True)], 'invisible': [('supplier_invoice', '=', False)]}"/>
+                    <field name="supplier_invoice_description"
+                           attrs="{'invisible': [('supplier_invoice', '=', False)]}"/>
+                </group>
+                <group string="Extra Line Items (Insurance, Customs, Storage, etc.)">
+                    <field name="extra_line_ids" mode="tree">
+                        <tree string="Extra Items" editable="bottom">
+                            <field name="description"/>
+                            <field name="quantity"/>
+                            <field name="price_unit" widget="monetary"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="action_create_invoices" type="object"
+                            string="Create Invoices" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vsl_transport_invoice_wizard" model="ir.actions.act_window">
+        <field name="name">Create Invoices</field>
+        <field name="res_model">vsl.transport.invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_vsl_transport_order"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+</odoo>
