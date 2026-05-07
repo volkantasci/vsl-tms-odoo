@@ -62,12 +62,11 @@
                         <page string="Stops">
                             <field name="stop_ids"/>
                         </page>
-                        <page string="Vehicle and Driver">
+                        <page string="Vehicle &amp; Driver">
                             <field name="assignment_ids"/>
                         </page>
                         <page string="Invoices">
-                            <field name="invoice_ids"
-                                   context="{'default_move_type': 'out_invoice'}"/>
+                            <field name="invoice_ids"/>
                         </page>
                         <page string="Notes">
                             <field name="notes"/>
