@@ -42,4 +42,35 @@
         </field>
     </record>
 
+    <record id="view_vsl_transport_stop_line_tree" model="ir.ui.view">
+        <field name="name">vsl.transport.stop.line.tree</field>
+        <field name="model">vsl.transport.stop.line</field>
+        <field name="arch" type="xml">
+            <list string="Durak Kalemleri">
+                <field name="customer_id"/>
+                <field name="product_desc"/>
+                <field name="quantity"/>
+                <field name="weight"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vsl_transport_stop_line_form" model="ir.ui.view">
+        <field name="name">vsl.transport.stop.line.form</field>
+        <field name="model">vsl.transport.stop.line</field>
+        <field name="arch" type="xml">
+            <form string="Durak Kalemi">
+                <sheet>
+                    <group>
+                        <field name="stop_id"/>
+                        <field name="customer_id"/>
+                        <field name="product_desc"/>
+                        <field name="quantity"/>
+                        <field name="weight"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 </odoo>
