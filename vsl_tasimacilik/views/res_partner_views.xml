@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_inherit_transport" model="ir.ui.view">
+        <field name="name">res.partner.form.transport</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="inside">
+                <group string="Carrier Information" name="carrier_info">
+                    <field name="is_carrier"/>
+                    <field name="carrier_tax_office"
+                           attrs="{'invisible': [('is_carrier', '=', False)]}"/>
+                    <field name="carrier_tax_number"
+                           attrs="{'invisible': [('is_carrier', '=', False)]}"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Documents" name="carrier_documents"
+                      attrs="{'invisible': [('is_carrier', '=', False)]}">
+                    <field name="carrier_document_ids" mode="tree,form">
+                        <tree string="Documents" editable="bottom">
+                            <field name="doc_type"/>
+                            <field name="attachment_id"/>
+                            <field name="issue_date"/>
+                            <field name="expiry_date"/>
+                            <field name="state" readonly="1"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="carrier_id" invisible="1"/>
+                                <field name="doc_type"/>
+                                <field name="attachment_id"/>
+                                <field name="issue_date"/>
+                                <field name="expiry_date"/>
+                                <field name="state" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
