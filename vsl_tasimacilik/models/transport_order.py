@@ -7,7 +7,7 @@ class VslTransportOrder(models.Model):
     _description = "Transport Order"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _rec_name = "name"
-    _order = "id desc"
+    _order = "create_date desc"
 
     name = fields.Char(
         string="Order Reference",
@@ -21,6 +21,7 @@ class VslTransportOrder(models.Model):
         string="Customer",
         required=True,
         tracking=True,
+        index=True,
     )
     state = fields.Selection(
         [
@@ -37,6 +38,7 @@ class VslTransportOrder(models.Model):
         default="draft",
         tracking=True,
         copy=False,
+        index=True,
     )
     planned_date_start = fields.Datetime(string="Planned Start", tracking=True)
     planned_date_end = fields.Datetime(string="Planned End", tracking=True)
@@ -86,6 +88,8 @@ class VslTransportOrder(models.Model):
 
     def action_confirm(self):
         for order in self:
+            if order.state != "draft":
+                raise UserError(_("Only draft orders can be confirmed."))
             if not order.customer_id:
                 raise UserError(_("Please set a customer before confirming."))
             load_stops = order.stop_ids.filtered(lambda s: s.stop_type == "loading")
@@ -104,15 +108,24 @@ class VslTransportOrder(models.Model):
 
     def action_start_loading(self):
         for order in self:
+            if order.state != "assigned":
+                raise UserError(_("Only assigned orders can start loading."))
             if not order.assignment_ids:
                 raise UserError(
                     _("Please assign a vehicle and driver before starting loading.")
+                )
+            active_assignments = order.assignment_ids.filtered(lambda a: a.state == "assigned")
+            if not active_assignments:
+                raise UserError(
+                    _("No active assignment found. All assignments must be in 'Assigned' state.")
                 )
             order.actual_date_start = fields.Datetime.now()
             order.state = "loading"
 
     def action_depart(self):
         for order in self:
+            if order.state != "loading":
+                raise UserError(_("Only loading orders can depart."))
             load_stops = order.stop_ids.filtered(lambda s: s.stop_type == "loading")
             unfinished = [s for s in load_stops if s.state != "done"]
             if unfinished:
@@ -128,6 +141,8 @@ class VslTransportOrder(models.Model):
 
     def action_deliver(self):
         for order in self:
+            if order.state != "in_transit":
+                raise UserError(_("Only in-transit orders can be delivered."))
             unload_stops = order.stop_ids.filtered(lambda s: s.stop_type == "unloading")
             unfinished = [s for s in unload_stops if s.state != "done"]
             if unfinished:
