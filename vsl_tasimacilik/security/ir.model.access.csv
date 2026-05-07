@@ -14,3 +14,8 @@ access_vsl_vehicle_assignment_garage,vsl.vehicle.assignment.garage,model_vsl_veh
 access_vsl_carrier_document_user,vsl.carrier.document.user,model_vsl_carrier_document,group_vsl_transport_user,1,0,0,0
 access_vsl_carrier_document_manager,vsl.carrier.document.manager,model_vsl_carrier_document,group_vsl_transport_manager,1,1,1,1
 access_vsl_carrier_document_garage,vsl.carrier.document.garage,model_vsl_carrier_document,group_vsl_garage_operator,1,1,1,1
+access_vsl_transport_order_admin,vsl.transport.order.admin,model_vsl_transport_order,base.group_system,1,1,1,1
+access_vsl_transport_stop_admin,vsl.transport.stop.admin,model_vsl_transport_stop,base.group_system,1,1,1,1
+access_vsl_transport_stop_line_admin,vsl.transport.stop.line.admin,model_vsl_transport_stop_line,base.group_system,1,1,1,1
+access_vsl_vehicle_assignment_admin,vsl.vehicle.assignment.admin,model_vsl_vehicle_assignment,base.group_system,1,1,1,1
+access_vsl_carrier_document_admin,vsl.carrier.document.admin,model_vsl_carrier_document,base.group_system,1,1,1,1
