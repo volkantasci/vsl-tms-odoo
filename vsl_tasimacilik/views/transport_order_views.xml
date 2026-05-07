@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vsl_transport_order_tree" model="ir.ui.view">
+        <field name="name">vsl.transport.order.tree</field>
+        <field name="model">vsl.transport.order</field>
+        <field name="arch" type="xml">
+            <tree string="Transport Orders" decoration-danger="state == 'cancelled'"
+                  decoration-success="state == 'invoiced'">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="state" widget="badge"/>
+                <field name="planned_date_start"/>
+                <field name="planned_date_end"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_vsl_transport_order_form" model="ir.ui.view">
+        <field name="name">vsl.transport.order.form</field>
+        <field name="model">vsl.transport.order</field>
+        <field name="arch" type="xml">
+            <form string="Transport Order">
+                <header>
+                    <button name="action_confirm" type="object"
+                            string="Confirm" class="btn-primary"
+                            states="draft"/>
+                    <button name="action_start_loading" type="object"
+                            string="Start Loading" class="btn-primary"
+                            states="assigned"/>
+                    <button name="action_depart" type="object"
+                            string="Depart" class="btn-primary"
+                            states="loading"/>
+                    <button name="action_deliver" type="object"
+                            string="Deliver" class="btn-primary"
+                            states="in_transit"/>
+                    <button name="action_view_history" type="object"
+                            string="View History" class="btn-secondary"
+                            states="draft,open,assigned"/>
+                    <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
+                            string="Create Invoices" class="btn-primary"
+                            states="delivered"/>
+                    <button name="action_cancel" type="object"
+                            string="Cancel" states="draft,open,assigned,loading,in_transit,delivered"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="planned_date_start"/>
+                            <field name="planned_date_end"/>
+                        </group>
+                        <group>
+                            <field name="amount_total" widget="monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="actual_date_start" readonly="1"/>
+                            <field name="actual_date_end" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Stops">
+                            <field name="stop_ids" mode="tree,form">
+                                <tree string="Stops" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="stop_type"/>
+                                    <field name="address_id"/>
+                                    <field name="planned_date"/>
+                                    <field name="actual_date"/>
+                                    <field name="state"/>
+                                </tree>
+                                <form string="Stop">
+                                    <group>
+                                        <field name="order_id" invisible="1"/>
+                                        <field name="stop_type"/>
+                                        <field name="sequence"/>
+                                        <field name="address_id"/>
+                                        <field name="planned_date"/>
+                                        <field name="actual_date"/>
+                                        <field name="state"/>
+                                    </group>
+                                    <group string="Stop Lines">
+                                        <field name="line_ids" mode="tree,form">
+                                            <tree string="Stop Lines" editable="bottom">
+                                                <field name="customer_id"/>
+                                                <field name="product_desc"/>
+                                                <field name="quantity"/>
+                                                <field name="weight"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="customer_id"/>
+                                                    <field name="product_desc"/>
+                                                    <field name="quantity"/>
+                                                    <field name="weight"/>
+                                                </group>
+                                            </form>
+                                        </field>
+                                    </group>
+                                    <group string="Notes">
+                                        <field name="notes"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Vehicle &amp; Driver">
+                            <field name="assignment_ids" mode="tree,form">
+                                <tree string="Assignments" editable="bottom">
+                                    <field name="vehicle_id"/>
+                                    <field name="external_vehicle_plate"/>
+                                    <field name="driver_id"/>
+                                    <field name="assignment_date"/>
+                                    <field name="state"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="order_id" invisible="1"/>
+                                        <field name="vehicle_id"
+                                               attrs="{'required': [('external_vehicle_plate', '=', False)]}"/>
+                                        <field name="external_vehicle_plate"
+                                               attrs="{'required': [('vehicle_id', '=', False)]}"/>
+                                        <field name="driver_id"/>
+                                        <field name="assignment_date"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Invoices">
+                            <field name="invoice_ids"
+                                   context="{'default_move_type': 'out_invoice'}"/>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vsl_transport_order_search" model="ir.ui.view">
+        <field name="name">vsl.transport.order.search</field>
+        <field name="model">vsl.transport.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Transport Orders">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
+                <filter name="assigned" string="Assigned" domain="[('state', '=', 'assigned')]"/>
+                <filter name="loading" string="Loading" domain="[('state', '=', 'loading')]"/>
+                <filter name="in_transit" string="In Transit" domain="[('state', '=', 'in_transit')]"/>
+                <filter name="delivered" string="Delivered" domain="[('state', '=', 'delivered')]"/>
+                <filter name="invoiced" string="Invoiced" domain="[('state', '=', 'invoiced')]"/>
+                <separator/>
+                <filter name="active" string="Active"
+                        domain="[('state', 'not in', ['cancelled', 'invoiced'])]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_customer" string="Customer"
+                            context="{'group_by': 'customer_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
