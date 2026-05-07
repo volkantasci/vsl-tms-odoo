@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_transport_order" model="ir.actions.report">
+        <field name="name">Transport Order</field>
+        <field name="model">vsl.transport.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">vsl_tasimacilik.report_transport_order</field>
+        <field name="report_file">vsl_tasimacilik.report_transport_order</field>
+        <field name="binding_model_id" ref="model_vsl_transport_order"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <template id="report_transport_order_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Transport Order: <span t-field="doc.name"/></h2>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Customer</th>
+                                <td t-field="doc.customer_id.name"/>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td t-field="doc.state"/>
+                            </tr>
+                            <tr>
+                                <th>Planned Dates</th>
+                                <td>
+                                    <t t-field="doc.planned_date_start"/> - <t t-field="doc.planned_date_end"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Total Amount</th>
+                                <td t-field="doc.amount_total"/>
+                            </tr>
+                        </table>
+
+                        <h3>Stops</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Seq</th>
+                                    <th>Type</th>
+                                    <th>Address</th>
+                                    <th>Planned</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.stop_ids" t-as="stop">
+                                    <td t-field="stop.sequence"/>
+                                    <td t-field="stop.stop_type"/>
+                                    <td t-field="stop.address_id.name"/>
+                                    <td t-field="stop.planned_date"/>
+                                    <td t-field="stop.state"/>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Notes</h3>
+                        <p t-field="doc.notes"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
