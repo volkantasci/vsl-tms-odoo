@@ -1,3 +1,5 @@
+import base64
+
 from odoo.tests.common import TransactionCase
 from odoo.exceptions import UserError, ValidationError
 
@@ -168,7 +170,7 @@ class TestCarrierDocument(TransactionCase):
     def test_create_document(self):
         attachment = self.env["ir.attachment"].create({
             "name": "test_license.pdf",
-            "datas": b"dummy",
+            "datas": base64.b64encode(b"dummy"),
         })
         doc = self.env["vsl.carrier.document"].create({
             "carrier_id": self.carrier.id,
@@ -182,7 +184,7 @@ class TestCarrierDocument(TransactionCase):
     def test_document_expiry(self):
         attachment = self.env["ir.attachment"].create({
             "name": "expired_license.pdf",
-            "datas": b"dummy",
+            "datas": base64.b64encode(b"dummy"),
         })
         doc = self.env["vsl.carrier.document"].create({
             "carrier_id": self.carrier.id,

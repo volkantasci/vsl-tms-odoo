@@ -49,3 +49,15 @@ class VslVehicleAssignment(models.Model):
                 raise ValidationError(
                     _("You must provide either a fleet vehicle or an external plate.")
                 )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        records._check_vehicle_info()
+        return records
+
+    def write(self, vals):
+        result = super().write(vals)
+        if "vehicle_id" in vals or "external_vehicle_plate" in vals:
+            self._check_vehicle_info()
+        return result
