@@ -100,11 +100,9 @@
                 <separator/>
                 <filter name="active" string="Active"
                         domain="[('state', 'not in', ['cancelled', 'invoiced'])]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_state" string="Status"
-                            context="{'group_by': 'state'}"/>
-                    <filter name="group_customer" string="Customer"
-                            context="{'group_by': 'customer_id'}"/>
+                <group>
+                    <filter name="group_state" context="{'group_by': 'state'}" string="Status"/>
+                    <filter name="group_customer" context="{'group_by': 'customer_id'}" string="Customer"/>
                 </group>
             </search>
         </field>
