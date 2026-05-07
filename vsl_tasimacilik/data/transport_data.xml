@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="seq_vsl_transport_order" model="ir.sequence">
+            <field name="name">Transport Order</field>
+            <field name="code">vsl.transport.order</field>
+            <field name="prefix">TMS/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="carrier_contact_type" model="res.partner.category">
+            <field name="name">Carrier</field>
+        </record>
+
+    </data>
+</odoo>
