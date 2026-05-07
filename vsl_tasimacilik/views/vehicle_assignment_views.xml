@@ -22,7 +22,6 @@
             <form string="Araç Ataması">
                 <sheet>
                     <group>
-                        <field name="order_id"/>
                         <field name="vehicle_id"/>
                         <field name="external_vehicle_plate"/>
                         <field name="driver_id"/>

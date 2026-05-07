@@ -23,7 +23,6 @@
             <form string="Durak">
                 <sheet>
                     <group>
-                        <field name="order_id"/>
                         <field name="stop_type"/>
                         <field name="sequence"/>
                         <field name="address_id"/>
@@ -62,7 +61,6 @@
             <form string="Durak Kalemi">
                 <sheet>
                     <group>
-                        <field name="stop_id"/>
                         <field name="customer_id"/>
                         <field name="product_desc"/>
                         <field name="quantity"/>
