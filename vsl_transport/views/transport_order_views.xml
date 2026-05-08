@@ -24,29 +24,36 @@
         <field name="arch" type="xml">
             <form string="Sevkiyat Emri">
                 <header>
+                    <field name="show_confirm" invisible="1"/>
+                    <field name="show_assign" invisible="1"/>
+                    <field name="show_start_loading" invisible="1"/>
+                    <field name="show_depart" invisible="1"/>
+                    <field name="show_deliver" invisible="1"/>
+                    <field name="show_invoice" invisible="1"/>
+                    <field name="show_cancel" invisible="1"/>
                     <button name="action_confirm" type="object"
                             string="Onayla" class="btn-primary"
-                            invisible="state != 'draft'"/>
+                            invisible="not show_confirm"/>
                     <button name="action_assign" type="object"
                             string="Ata" class="btn-primary"
-                            invisible="state != 'open'"/>
+                            invisible="not show_assign"/>
                     <button name="action_start_loading" type="object"
                             string="Yüklemeye Başla" class="btn-primary"
-                            invisible="state != 'assigned'"/>
+                            invisible="not show_start_loading"/>
                     <button name="action_depart" type="object"
                             string="Yola Çıktı" class="btn-primary"
-                            invisible="state != 'loading'"/>
+                            invisible="not show_depart"/>
                     <button name="action_deliver" type="object"
                             string="Teslim Edildi" class="btn-primary"
-                            invisible="state != 'in_transit'"/>
+                            invisible="not show_deliver"/>
                     <button name="action_view_history" type="object"
                             string="Geçmiş Sevkiyatlar" class="btn-secondary"/>
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
                             string="Fatura Oluştur" class="btn-primary"
-                            invisible="state != 'delivered'"/>
+                            invisible="not show_invoice"/>
                     <button name="action_cancel" type="object"
                             string="İptal"
-                            invisible="state not in ('draft', 'open', 'assigned', 'loading', 'in_transit')"/>
+                            invisible="not show_cancel"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
