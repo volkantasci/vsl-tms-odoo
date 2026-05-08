@@ -25,6 +25,7 @@ class VslTransportStop(models.Model):
         "res.partner",
         string="Address",
         required=True,
+        domain=[("is_company", "=", False)],
     )
     location_id = fields.Many2one("vsl.location", string="Location")
     planned_date = fields.Datetime(string="Planned Date")
