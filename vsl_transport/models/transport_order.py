@@ -20,6 +20,7 @@ class VslTransportOrder(models.Model):
         "res.partner",
         string="Customer",
         required=True,
+        domain=[("is_company", "=", True)],
         tracking=True,
         index=True,
     )
