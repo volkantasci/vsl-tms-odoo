@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="driver_type_supplier" model="vsl.driver.type">
+            <field name="name">Tedarik</field>
+        </record>
+        <record id="driver_type_contracted" model="vsl.driver.type">
+            <field name="name">Sozlesmeli</field>
+        </record>
+        <record id="driver_type_non_contracted" model="vsl.driver.type">
+            <field name="name">Sozlesmesiz</field>
+        </record>
+
+        <record id="vehicle_type_kamyonet" model="vsl.vehicle.type">
+            <field name="name">Kamyonet</field>
+        </record>
+        <record id="vehicle_type_6teker" model="vsl.vehicle.type">
+            <field name="name">6 Teker</field>
+        </record>
+        <record id="vehicle_type_atego" model="vsl.vehicle.type">
+            <field name="name">Atego</field>
+        </record>
+        <record id="vehicle_type_10teker" model="vsl.vehicle.type">
+            <field name="name">10 Teker</field>
+        </record>
+        <record id="vehicle_type_40ayak" model="vsl.vehicle.type">
+            <field name="name">40 Ayak</field>
+        </record>
+        <record id="vehicle_type_cekici" model="vsl.vehicle.type">
+            <field name="name">Cekici</field>
+        </record>
+        <record id="vehicle_type_dorse" model="vsl.vehicle.type">
+            <field name="name">Dorse</field>
+        </record>
+        <record id="vehicle_type_lowbed" model="vsl.vehicle.type">
+            <field name="name">Lowbed</field>
+        </record>
+        <record id="vehicle_type_forklift" model="vsl.vehicle.type">
+            <field name="name">Forklift</field>
+        </record>
+        <record id="vehicle_type_vinc" model="vsl.vehicle.type">
+            <field name="name">Vinc</field>
+        </record>
+
+        <record id="trailer_class_tenteli" model="vsl.vehicle.trailer.class">
+            <field name="name">Tenteli</field>
+        </record>
+        <record id="trailer_class_tentesiz" model="vsl.vehicle.trailer.class">
+            <field name="name">Tentesiz</field>
+        </record>
+
+        <record id="case_type_acik" model="vsl.vehicle.case.type">
+            <field name="name">Acik</field>
+        </record>
+        <record id="case_type_kapali" model="vsl.vehicle.case.type">
+            <field name="name">Kapali</field>
+        </record>
+        <record id="case_type_frigo" model="vsl.vehicle.case.type">
+            <field name="name">Frigo</field>
+        </record>
+
+        <record id="pass_system_ogs" model="vsl.vehicle.pass.system">
+            <field name="name">OGS</field>
+        </record>
+        <record id="pass_system_hgs" model="vsl.vehicle.pass.system">
+            <field name="name">HGS</field>
+        </record>
+
+        <record id="ownership_ozmal" model="vsl.vehicle.ownership">
+            <field name="name">Oz Mal</field>
+        </record>
+        <record id="ownership_tedarik" model="vsl.vehicle.ownership">
+            <field name="name">Tedarik</field>
+        </record>
+
+    </data>
+</odoo>
