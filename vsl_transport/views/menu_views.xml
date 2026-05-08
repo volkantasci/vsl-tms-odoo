@@ -123,10 +123,4 @@
               action="action_vsl_location"
               sequence="35"/>
 
-    <menuitem id="menu_vsl_dashboard"
-              name="Dashboard"
-              parent="menu_vsl_transport_root"
-              action="action_vsl_dashboard"
-              sequence="5"/>
-
 </odoo>

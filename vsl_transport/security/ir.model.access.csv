@@ -59,7 +59,3 @@ access_vsl_location_user,vsl.location.user,model_vsl_location,group_vsl_transpor
 access_vsl_location_manager,vsl.location.manager,model_vsl_location,group_vsl_transport_manager,1,1,1,1
 access_vsl_location_garage,vsl.location.garage,model_vsl_location,group_vsl_garage_operator,1,0,0,0
 access_vsl_location_admin,vsl.location.admin,model_vsl_location,base.group_system,1,1,1,1
-access_vsl_dashboard_user,vsl.dashboard.user,model_vsl_dashboard,group_vsl_transport_user,1,1,1,0
-access_vsl_dashboard_manager,vsl.dashboard.manager,model_vsl_dashboard,group_vsl_transport_manager,1,1,1,0
-access_vsl_dashboard_garage,vsl.dashboard.garage,model_vsl_dashboard,group_vsl_garage_operator,1,1,1,0
-access_vsl_dashboard_admin,vsl.dashboard.admin,model_vsl_dashboard,base.group_system,1,1,1,0
