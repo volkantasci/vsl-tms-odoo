@@ -1,5 +1,5 @@
 {
-    "name": "vsl-Taşımacılık",
+    "name": "vsl Transport",
     "summary": "Uçtan uca sevkiyat yönetim modülü",
     "description": """
 Türkiye'deki lojistik firmaları için uçtan uca sevkiyat yönetimi.
