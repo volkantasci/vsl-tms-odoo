@@ -25,21 +25,28 @@
             <form string="Sevkiyat Emri">
                 <header>
                     <button name="action_confirm" type="object"
-                            string="Onayla" class="btn-primary"/>
+                            string="Onayla" class="btn-primary"
+                            invisible="state != 'draft'"/>
                     <button name="action_assign" type="object"
-                            string="Ata" class="btn-primary"/>
+                            string="Ata" class="btn-primary"
+                            invisible="state != 'open'"/>
                     <button name="action_start_loading" type="object"
-                            string="Yüklemeye Başla" class="btn-primary"/>
+                            string="Yüklemeye Başla" class="btn-primary"
+                            invisible="state != 'assigned'"/>
                     <button name="action_depart" type="object"
-                            string="Yola Çıktı" class="btn-primary"/>
+                            string="Yola Çıktı" class="btn-primary"
+                            invisible="state != 'loading'"/>
                     <button name="action_deliver" type="object"
-                            string="Teslim Edildi" class="btn-primary"/>
+                            string="Teslim Edildi" class="btn-primary"
+                            invisible="state != 'in_transit'"/>
                     <button name="action_view_history" type="object"
                             string="Geçmiş Sevkiyatlar" class="btn-secondary"/>
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
-                            string="Fatura Oluştur" class="btn-primary"/>
+                            string="Fatura Oluştur" class="btn-primary"
+                            invisible="state != 'delivered'"/>
                     <button name="action_cancel" type="object"
-                            string="İptal"/>
+                            string="İptal"
+                            invisible="state not in ('draft', 'open', 'assigned', 'loading', 'in_transit')"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
