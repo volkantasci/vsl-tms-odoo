@@ -26,6 +26,8 @@
                 <header>
                     <button name="action_confirm" type="object"
                             string="Onayla" class="btn-primary"/>
+                    <button name="action_assign" type="object"
+                            string="Ata" class="btn-primary"/>
                     <button name="action_start_loading" type="object"
                             string="Yüklemeye Başla" class="btn-primary"/>
                     <button name="action_depart" type="object"

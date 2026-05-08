@@ -101,6 +101,23 @@ class VslTransportOrder(models.Model):
                 )
             order.state = "open"
 
+    def action_assign(self):
+        for order in self:
+            if order.state != "open":
+                raise UserError(_("Only open orders can be assigned."))
+            if not order.assignment_ids:
+                raise UserError(
+                    _("Please create a vehicle assignment before assigning.")
+                )
+            valid_assignments = order.assignment_ids.filtered(
+                lambda a: a.state == "assigned"
+            )
+            if not valid_assignments:
+                raise UserError(
+                    _("No active assignment found. All assignments must be in 'Assigned' state.")
+                )
+            order.state = "assigned"
+
     def action_cancel(self):
         for order in self:
             if order.state == "invoiced":
