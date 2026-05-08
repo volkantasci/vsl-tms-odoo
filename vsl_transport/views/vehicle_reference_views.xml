@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vsl_vehicle_type_list" model="ir.ui.view">
+        <field name="name">vsl.vehicle.type.list</field>
+        <field name="model">vsl.vehicle.type</field>
+        <field name="arch" type="xml">
+            <list string="Araç Tipleri" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_vehicle_type" model="ir.actions.act_window">
+        <field name="name">Araç Tipleri</field>
+        <field name="res_model">vsl.vehicle.type</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_vsl_vehicle_trailer_class_list" model="ir.ui.view">
+        <field name="name">vsl.vehicle.trailer.class.list</field>
+        <field name="model">vsl.vehicle.trailer.class</field>
+        <field name="arch" type="xml">
+            <list string="Dorse Sınıfları" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_vehicle_trailer_class" model="ir.actions.act_window">
+        <field name="name">Dorse Sınıfları</field>
+        <field name="res_model">vsl.vehicle.trailer.class</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_vsl_vehicle_case_type_list" model="ir.ui.view">
+        <field name="name">vsl.vehicle.case.type.list</field>
+        <field name="model">vsl.vehicle.case.type</field>
+        <field name="arch" type="xml">
+            <list string="Kasa Tipleri" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_vehicle_case_type" model="ir.actions.act_window">
+        <field name="name">Kasa Tipleri</field>
+        <field name="res_model">vsl.vehicle.case.type</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_vsl_vehicle_pass_system_list" model="ir.ui.view">
+        <field name="name">vsl.vehicle.pass.system.list</field>
+        <field name="model">vsl.vehicle.pass.system</field>
+        <field name="arch" type="xml">
+            <list string="Geçiş Sistemleri" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_vehicle_pass_system" model="ir.actions.act_window">
+        <field name="name">Geçiş Sistemleri</field>
+        <field name="res_model">vsl.vehicle.pass.system</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_vsl_vehicle_ownership_list" model="ir.ui.view">
+        <field name="name">vsl.vehicle.ownership.list</field>
+        <field name="model">vsl.vehicle.ownership</field>
+        <field name="arch" type="xml">
+            <list string="Sahiplik Durumları" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_vehicle_ownership" model="ir.actions.act_window">
+        <field name="name">Sahiplik Durumları</field>
+        <field name="res_model">vsl.vehicle.ownership</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

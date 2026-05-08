@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vsl_dashboard" model="ir.ui.view">
+        <field name="name">vsl.dashboard.view</field>
+        <field name="model">vsl.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Taşımacılık Panosu">
+                <sheet>
+                    <div class="o_dashboard_container">
+                        <group string="Operasyon">
+                            <field name="total_orders" widget="statinfo"/>
+                            <field name="open_orders" widget="statinfo"/>
+                            <field name="loading_orders" widget="statinfo"/>
+                            <field name="in_transit_orders" widget="statinfo"/>
+                            <field name="delivered_month" widget="statinfo"/>
+                            <field name="cancelled_month" widget="statinfo"/>
+                        </group>
+                        <group string="Filo">
+                            <field name="total_vehicles" widget="statinfo"/>
+                            <field name="available_vehicles" widget="statinfo"/>
+                            <field name="on_route_vehicles" widget="statinfo"/>
+                            <field name="maintenance_vehicles" widget="statinfo"/>
+                            <field name="total_drivers" widget="statinfo"/>
+                            <field name="active_drivers" widget="statinfo"/>
+                            <field name="on_leave_drivers" widget="statinfo"/>
+                        </group>
+                        <group string="İş Ortakları">
+                            <field name="total_carriers" widget="statinfo"/>
+                            <field name="total_locations" widget="statinfo"/>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vsl_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">vsl.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

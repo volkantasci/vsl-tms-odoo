@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fleet_vehicle_form_inherit_transport" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.transport</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='tabs']" position="inside">
+                <page string="Taşımacılık" name="transport">
+                    <group>
+                        <field name="vsl_vehicle_type_id"/>
+                        <field name="vsl_trailer_class_id"/>
+                        <field name="vsl_case_type_id"/>
+                        <field name="vsl_pass_system_id"/>
+                        <field name="vsl_ownership_id"/>
+                        <field name="vsl_capacity"/>
+                        <field name="vsl_transport_status"/>
+                    </group>
+                    <group string="Araç Evrakları">
+                        <field name="vsl_document_ids"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
