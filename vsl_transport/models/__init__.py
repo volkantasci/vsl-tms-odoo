@@ -4,3 +4,7 @@ from . import transport_order
 from . import transport_stop
 from . import vehicle_assignment
 from . import vehicle_reference
+from . import driver_type
+from . import driver_document
+from . import driver_profile
+from . import vehicle_document
