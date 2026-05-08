@@ -6,7 +6,7 @@
         <field name="model">vsl.transport.order</field>
         <field name="arch" type="xml">
             <list string="Sevkiyat Emirleri" decoration-danger="state == 'cancelled'"
-                  decoration-success="state == 'invoiced'" sample="1">
+                  decoration-success="state == 'invoiced'">
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="state" widget="badge"/>
