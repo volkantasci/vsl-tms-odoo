@@ -3,6 +3,7 @@
 
     <menuitem id="menu_vsl_transport_root"
               name="Sevkiyatlar"
+              web_icon="vsl_transport,static/description/icon.png"
               sequence="90"/>
 
     <record id="action_vsl_transport_order" model="ir.actions.act_window">
