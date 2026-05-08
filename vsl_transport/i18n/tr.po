@@ -573,3 +573,148 @@ msgstr "Garaj Operatörü"
 #: model:ir.model.constraint,message:vsl_transport.constraint_vsl_vehicle_assignment__check_vehicle_info
 msgid "You must provide either a fleet vehicle or an external plate."
 msgstr "Bir filo aracı veya harici plaka bilgisi girilmelidir."
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_type
+msgid "Vehicle Type"
+msgstr "Araç Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_trailer_class
+msgid "Vehicle Trailer Class"
+msgstr "Araç Dorse Sınıfı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_case_type
+msgid "Vehicle Case Type"
+msgstr "Araç Kasa Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_pass_system
+msgid "Vehicle Pass System"
+msgstr "Araç Geçiş Sistemi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_ownership
+msgid "Vehicle Ownership Status"
+msgstr "Araç Sahiplik Durumu"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_type
+msgid "Driver Type"
+msgstr "Sürücü Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_document
+msgid "Driver Document"
+msgstr "Sürücü Evrakı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_profile
+msgid "Driver Profile"
+msgstr "Sürücü Profili"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_document
+msgid "Vehicle Document"
+msgstr "Araç Evrakı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_location
+msgid "Location"
+msgstr "Lokasyon"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_dashboard
+msgid "Transport Dashboard"
+msgstr "Taşımacılık Panosu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__partner_id
+msgid "Driver / Partner"
+msgstr "Sürücü / İş Ortağı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_number
+msgid "License Number"
+msgstr "Ehliyet Numarası"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_class
+msgid "License Class"
+msgstr "Ehliyet Sınıfı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__document_ids
+msgid "Documents"
+msgstr "Evraklar"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__driver_id
+msgid "Driver"
+msgstr "Sürücü"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__vehicle_id
+msgid "Vehicle"
+msgstr "Araç"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__name
+msgid "Location Name"
+msgstr "Lokasyon Adı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__type
+msgid "Location Type"
+msgstr "Lokasyon Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__street
+msgid "Street"
+msgstr "Sokak / Cadde"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__city
+msgid "City"
+msgstr "Şehir"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__latitude
+msgid "Latitude"
+msgstr "Enlem"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__longitude
+msgid "Longitude"
+msgstr "Boylam"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__contact_name
+msgid "Contact Name"
+msgstr "Yetkili Adı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__contact_phone
+msgid "Contact Phone"
+msgstr "Yetkili Telefon"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__features
+msgid "Features"
+msgstr "Özellikler"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__location_id
+msgid "Location"
+msgstr "Lokasyon"
+
+#. module: vsl_transport
+#: model:ir.model.fields,help:vsl_transport.field_vsl_location__partner_id
+msgid "Optional link to a partner address record."
+msgstr "İş ortağı adres kaydına isteğe bağlı bağlantı."
