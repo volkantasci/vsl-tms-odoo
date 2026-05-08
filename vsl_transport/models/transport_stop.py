@@ -26,6 +26,7 @@ class VslTransportStop(models.Model):
         string="Address",
         required=True,
     )
+    location_id = fields.Many2one("vsl.location", string="Location")
     planned_date = fields.Datetime(string="Planned Date")
     actual_date = fields.Datetime(string="Actual Date")
     state = fields.Selection(

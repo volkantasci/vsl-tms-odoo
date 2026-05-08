@@ -8,3 +8,6 @@ from . import driver_type
 from . import driver_document
 from . import driver_profile
 from . import vehicle_document
+from . import fleet_vehicle
+from . import location
+from . import dashboard
