@@ -15,15 +15,15 @@
         <record id="group_vsl_transport_manager" model="res.groups">
             <field name="name">Transport Manager</field>
             <field name="implied_ids" eval="[
-                (4, ref('vsl_tasimacilik.group_vsl_transport_user')),
-                (4, ref('vsl_tasimacilik.group_vsl_garage_operator')),
+                (4, ref('vsl_transport.group_vsl_transport_user')),
+                (4, ref('vsl_transport.group_vsl_garage_operator')),
             ]"/>
         </record>
 
         <record id="rule_transport_order_user" model="ir.rule">
             <field name="name">Transport User: own orders</field>
             <field name="model_id" ref="model_vsl_transport_order"/>
-            <field name="groups" eval="[(4, ref('vsl_tasimacilik.group_vsl_transport_user'))]"/>
+            <field name="groups" eval="[(4, ref('vsl_transport.group_vsl_transport_user'))]"/>
             <field name="domain_force">[('create_uid', '=', user.id)]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
@@ -34,7 +34,7 @@
         <record id="rule_transport_order_garage" model="ir.rule">
             <field name="name">Garage Operator: open orders</field>
             <field name="model_id" ref="model_vsl_transport_order"/>
-            <field name="groups" eval="[(4, ref('vsl_tasimacilik.group_vsl_garage_operator'))]"/>
+            <field name="groups" eval="[(4, ref('vsl_transport.group_vsl_garage_operator'))]"/>
             <field name="domain_force">[('state', '=', 'open')]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
@@ -45,14 +45,14 @@
         <record id="rule_transport_order_manager" model="ir.rule">
             <field name="name">Transport Manager: all orders</field>
             <field name="model_id" ref="model_vsl_transport_order"/>
-            <field name="groups" eval="[(4, ref('vsl_tasimacilik.group_vsl_transport_manager'))]"/>
+            <field name="groups" eval="[(4, ref('vsl_transport.group_vsl_transport_manager'))]"/>
             <field name="domain_force">[(1, '=', 1)]</field>
         </record>
 
         <record id="rule_carrier_document_garage" model="ir.rule">
             <field name="name">Garage Operator: carrier documents</field>
             <field name="model_id" ref="model_vsl_carrier_document"/>
-            <field name="groups" eval="[(4, ref('vsl_tasimacilik.group_vsl_garage_operator'))]"/>
+            <field name="groups" eval="[(4, ref('vsl_transport.group_vsl_garage_operator'))]"/>
             <field name="domain_force">[(1, '=', 1)]</field>
         </record>
 

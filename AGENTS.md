@@ -14,8 +14,8 @@
 | **Docker compose** | `~/dev/odoo/docker-compose.yml` |
 | **Custom addons** | `~/dev/odoo/addons/` → `/mnt/extra-addons/` (container) |
 | **Proje dizini** | `~/dev/vsl-tms-odoo/` (git repo) |
-| **Modül dizini** | `~/dev/vsl-tms-odoo/vsl_tasimacilik/` |
-| **Bind mount** | `~/dev/vsl-tms-odoo/vsl_tasimacilik:/mnt/extra-addons/vsl_tasimacilik` (canlı) |
+| **Modül dizini** | `~/dev/vsl-tms-odoo/vsl_transport/` |
+| **Bind mount** | `~/dev/vsl-tms-odoo/vsl_transport:/mnt/extra-addons/vsl_transport` (canlı) |
 
 ## Hızlı Komutlar
 
@@ -25,7 +25,7 @@
 # Web'i durdur, modülü güncelle, web'i başlat
 docker compose -f ~/dev/odoo/docker-compose.yml stop web
 docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
-  -d odoo -u vsl_tasimacilik --stop-after-init
+  -d odoo -u vsl_transport --stop-after-init
 docker compose -f ~/dev/odoo/docker-compose.yml up -d web
 
 # Container'ları yeniden başlat
@@ -36,7 +36,7 @@ docker compose -f ~/dev/odoo/docker-compose.yml restart
 # Testleri çalıştır
 docker compose -f ~/dev/odoo/docker-compose.yml stop web
 docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
-  --test-enable -d odoo -u vsl_tasimacilik --stop-after-init
+  --test-enable -d odoo -u vsl_transport --stop-after-init
 docker compose -f ~/dev/odoo/docker-compose.yml up -d web
 
 # === VERİTABANI ===
@@ -47,7 +47,7 @@ docker compose -f ~/dev/odoo/docker-compose.yml exec db psql -U odoo -d odoo -c 
 # Çeviri yükleme (sadece yeni .po eklenince)
 docker compose -f ~/dev/odoo/docker-compose.yml exec web odoo i18n loadlang -d odoo -l tr
 docker compose -f ~/dev/odoo/docker-compose.yml exec web odoo i18n import \
-  -d odoo -l tr --overwrite /mnt/extra-addons/vsl_tasimacilik/i18n/tr.po
+  -d odoo -l tr --overwrite /mnt/extra-addons/vsl_transport/i18n/tr.po
 
 # === KONTEYNER İÇİ ===
 
@@ -86,7 +86,7 @@ docker compose -f ~/dev/odoo/docker-compose.yml logs -f web
 - `.po` dosyası `i18n import` ile yüklenebilir AMA her zaman çalışmaz, gerekirse SQL
 
 ### Deploy
-- ✅ Modül dizini direkt bind mount edildi (docker-compose.yml): `~/dev/vsl-tms-odoo/vsl_tasimacilik:/mnt/extra-addons/vsl_tasimacilik`
+- ✅ Modül dizini direkt bind mount edildi (docker-compose.yml): `~/dev/vsl-tms-odoo/vsl_transport:/mnt/extra-addons/vsl_transport`
 - Odoo config dosyası: `~/dev/odoo/config/odoo.conf` (DB bilgileri dahil edilmeli)
 
 ## Modül Mimarisi

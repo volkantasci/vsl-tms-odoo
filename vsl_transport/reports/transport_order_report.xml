@@ -5,8 +5,8 @@
         <field name="name">Transport Order</field>
         <field name="model">vsl.transport.order</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">vsl_tasimacilik.report_transport_order</field>
-        <field name="report_file">vsl_tasimacilik.report_transport_order</field>
+        <field name="report_name">vsl_transport.report_transport_order</field>
+        <field name="report_file">vsl_transport.report_transport_order</field>
         <field name="binding_model_id" ref="model_vsl_transport_order"/>
         <field name="binding_view_types">form</field>
     </record>

@@ -2,7 +2,7 @@
 <odoo>
 
     <menuitem id="menu_vsl_transport_root"
-              name="Taşımacılık"
+              name="Sevkiyatlar"
               sequence="90"/>
 
     <record id="action_vsl_transport_order" model="ir.actions.act_window">
@@ -40,6 +40,6 @@
               name="Yapılandırma"
               parent="menu_vsl_transport_root"
               sequence="90"
-              groups="vsl_tasimacilik.group_vsl_transport_manager"/>
+              groups="vsl_transport.group_vsl_transport_manager"/>
 
 </odoo>

@@ -32,13 +32,13 @@ Odoo 19 için geliştirilmiş, Türkiye lojistik sektörüne özel uçtan uca se
 
 ```bash
 # Modülü Odoo addons dizinine kopyala
-cp -r vsl_tasimacilik /path/to/odoo/addons/
+cp -r vsl_transport /path/to/odoo/addons/
 
 # Odoo'yu yeniden başlat
 docker compose restart web
 
 # Modülü kur
-docker compose exec web odoo -d <veritabani> -i vsl_tasimacilik --stop-after-init
+docker compose exec web odoo -d <veritabani> -i vsl_transport --stop-after-init
 ```
 
 ## Geliştirme Ortamı
@@ -52,18 +52,18 @@ cd vsl-tms-odoo
 cd ~/dev/odoo && docker compose up -d
 
 # Modülü deploy et
-cp -r vsl_tasimacilik ~/dev/odoo/addons/
+cp -r vsl_transport ~/dev/odoo/addons/
 
 # Modülü güncelle (her kod değişikliğinde)
 docker compose -f ~/dev/odoo/docker-compose.yml stop web
 docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
-  -d odoo -u vsl_tasimacilik --stop-after-init
+  -d odoo -u vsl_transport --stop-after-init
 docker compose -f ~/dev/odoo/docker-compose.yml up -d web
 
 # Testleri çalıştır
 docker compose -f ~/dev/odoo/docker-compose.yml stop web
 docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
-  --test-enable -d odoo -u vsl_tasimacilik --stop-after-init
+  --test-enable -d odoo -u vsl_transport --stop-after-init
 ```
 
 ## Veri Modelleri
@@ -97,7 +97,7 @@ Taslak ──▶ Açık ──▶ Atandı ──▶ Yüklemede ──▶ Yolda �
 ## Dizin Yapısı
 
 ```
-vsl_tasimacilik/
+vsl_transport/
 ├── __manifest__.py              # Modül metadata ve bağımlılıklar
 ├── __init__.py
 ├── models/                      # Python veri modelleri
@@ -124,7 +124,7 @@ vsl_tasimacilik/
 │   └── transport_order_report.py
 ├── i18n/                        # Çeviriler
 │   ├── tr.po
-│   └── vsl_tasimacilik.pot
+│   └── vsl_transport.pot
 └── tests/                       # Birim/entegrasyon testleri
     └── test_transport_order.py
 ```

@@ -2,7 +2,7 @@ from odoo import api, models
 
 
 class VslTransportOrderReport(models.AbstractModel):
-    _name = "report.vsl_tasimacilik.report_transport_order"
+    _name = "report.vsl_transport.report_transport_order"
     _description = "Transport Order Report"
 
     @api.model
