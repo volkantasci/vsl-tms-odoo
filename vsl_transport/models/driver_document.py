@@ -3,45 +3,40 @@ from odoo import api, fields, models
 
 class VslDriverDocument(models.Model):
     _name = "vsl.driver.document"
-    _description = "Driver Document"
+    _description = "Sürücü Evrakı"
     _rec_name = "doc_type"
     _order = "expiry_date asc nulls last"
 
     driver_id = fields.Many2one(
         "vsl.driver.profile",
-        string="Driver",
+        string="Sürücü",
         required=True,
         ondelete="cascade",
         index=True,
     )
     doc_type = fields.Selection(
         [
-            ("driving_license", "Driving License"),
-            ("src_certificate", "SRC Certificate"),
-            ("psychotechnic", "Psychotechnic"),
-            ("other", "Other"),
+            ("driving_license", "Ehliyet"),
+            ("src_certificate", "SRC Belgesi"),
+            ("psychotechnic", "Psikoteknik"),
+            ("other", "Diğer"),
         ],
-        string="Document Type",
+        string="Evrak Tipi",
         required=True,
     )
-    attachment_id = fields.Many2one(
-        "ir.attachment",
-        string="File",
-        required=True,
-        ondelete="cascade",
-    )
-    issue_date = fields.Date(string="Issue Date")
-    expiry_date = fields.Date(string="Expiry Date")
+    datas = fields.Binary(string="Dosya", attachment=False)
+    issue_date = fields.Date(string="Düzenlenme Tarihi")
+    expiry_date = fields.Date(string="Son Geçerlilik Tarihi")
     state = fields.Selection(
         [
-            ("valid", "Valid"),
-            ("expired", "Expired"),
+            ("valid", "Geçerli"),
+            ("expired", "Süresi Doldu"),
         ],
-        string="Status",
+        string="Durum",
         default="valid",
         compute="_compute_state",
     )
-    notes = fields.Text(string="Notes")
+    notes = fields.Text(string="Notlar")
 
     @api.depends("expiry_date")
     def _compute_state(self):

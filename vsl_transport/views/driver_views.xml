@@ -83,7 +83,7 @@
                     <group>
                         <field name="driver_id"/>
                         <field name="doc_type"/>
-                        <field name="attachment_id" widget="many2one_binary"/>
+                        <field name="datas" widget="binary"/>
                         <field name="issue_date"/>
                         <field name="expiry_date"/>
                         <field name="state" readonly="1"/>

@@ -3,45 +3,40 @@ from odoo import api, fields, models
 
 class VslVehicleDocument(models.Model):
     _name = "vsl.vehicle.document"
-    _description = "Vehicle Document"
+    _description = "Araç Evrakı"
     _rec_name = "doc_type"
     _order = "expiry_date asc nulls last"
 
     vehicle_id = fields.Many2one(
         "fleet.vehicle",
-        string="Vehicle",
+        string="Araç",
         required=True,
         ondelete="cascade",
         index=True,
     )
     doc_type = fields.Selection(
         [
-            ("insurance", "Insurance"),
-            ("vehicle_registration", "Vehicle Registration"),
-            ("inspection", "Inspection"),
-            ("other", "Other"),
+            ("insurance", "Sigorta"),
+            ("vehicle_registration", "Ruhsat"),
+            ("inspection", "Muayene"),
+            ("other", "Diğer"),
         ],
-        string="Document Type",
+        string="Evrak Tipi",
         required=True,
     )
-    attachment_id = fields.Many2one(
-        "ir.attachment",
-        string="File",
-        required=True,
-        ondelete="cascade",
-    )
-    issue_date = fields.Date(string="Issue Date")
-    expiry_date = fields.Date(string="Expiry Date")
+    datas = fields.Binary(string="Dosya", attachment=True)
+    issue_date = fields.Date(string="Düzenlenme Tarihi")
+    expiry_date = fields.Date(string="Son Geçerlilik Tarihi")
     state = fields.Selection(
         [
-            ("valid", "Valid"),
-            ("expired", "Expired"),
+            ("valid", "Geçerli"),
+            ("expired", "Süresi Doldu"),
         ],
-        string="Status",
+        string="Durum",
         default="valid",
         compute="_compute_state",
     )
-    notes = fields.Text(string="Notes")
+    notes = fields.Text(string="Notlar")
 
     @api.depends("expiry_date")
     def _compute_state(self):
