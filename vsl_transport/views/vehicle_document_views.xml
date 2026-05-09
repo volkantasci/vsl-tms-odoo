@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <list string="Araç Evrakları" editable="bottom">
                 <field name="doc_type"/>
+                <field name="datas" widget="binary"/>
                 <field name="issue_date"/>
                 <field name="expiry_date"/>
                 <field name="state" readonly="1"/>
