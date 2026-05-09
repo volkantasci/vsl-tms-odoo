@@ -6,10 +6,14 @@ Odoo 19 için geliştirilmiş, Türkiye lojistik sektörüne özel uçtan uca se
 
 - **Sevkiyat Emri Yönetimi** — Taslak → Açık → Atandı → Yüklemede → Yolda → Teslim Edildi → Faturalandı durum akışı
 - **Çoklu/Parsiyel Yükleme** — Aynı araca birden çok müşterinin malını yükleme, çok duraklı rota planlama
-- **Araç ve Sürücü Ataması** — Kendi filo araçları (fleet.vehicle) veya harici nakliyeci plakası ile
+- **Araç ve Sürücü Ataması** — Tek sihirbaz ile araç+sürücü atama, kendi filo veya harici nakliyeci
+- **Sürücü Evrak Yönetimi** — Ehliyet, SRC belgesi, psikoteknik takibi ve son kullanma kontrolü
+- **Araç Evrak Yönetimi** — Sigorta, ruhsat, muayene takibi ve son kullanma kontrolü
 - **Tedarikçi Evrak Yönetimi** — Ehliyet, ruhsat, sigorta, SRC belgesi takibi ve son kullanma kontrolü
 - **Geçmiş Fiyat Sorgulama** — Aynı rotadaki geçmiş sevkiyatların fiyatlarına hızlı erişim
 - **Çift Yönlü Fatura** — Müşteri faturası (out_invoice) ve tedarikçi faturası (in_invoice) oluşturma sihirbazı
+- **Pozisyon Bilgileri** — Yükleme ve boşaltma lokasyonları otomatik hesaplama
+- **URL Routing** — Akılda kalıcı `/sevkiyatlar` endpoint
 - **Tamamen Türkçe** — Tüm arayüz, hata mesajları ve durum değerleri Türkçe
 
 ## Gereksinimler
@@ -74,7 +78,11 @@ docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
 | `vsl.transport.stop` | Yükleme/boşaltma durağı |
 | `vsl.transport.stop.line` | Durak kalemi (parsiyel yükleme) |
 | `vsl.vehicle.assignment` | Araç ve sürücü ataması |
+| `vsl.driver.profile` | Sürücü profili |
+| `vsl.driver.document` | Sürücü evrakı (ehliyet/src/psikoteknik) |
+| `vsl.vehicle.document` | Araç evrakı (sigorta/ruhsat/muayene) |
 | `vsl.carrier.document` | Tedarikçi evrakı |
+| `fleet.vehicle` (genişletme) | Taşımacılık alanları, evraklar |
 | `res.partner` (genişletme) | is_carrier, vergi dairesi, vergi no |
 
 ## Durum Makinesi
@@ -104,24 +112,35 @@ vsl_transport/
 │   ├── transport_order.py       # Sevkiyat emri
 │   ├── transport_stop.py        # Durak ve durak kalemi
 │   ├── vehicle_assignment.py    # Araç ataması
+│   ├── driver_profile.py        # Sürücü profili
+│   ├── driver_document.py      # Sürücü evrakı
+│   ├── vehicle_document.py     # Araç evrakı
 │   ├── carrier_document.py      # Tedarikçi evrakı
+│   ├── fleet_vehicle.py         # fleet.vehicle genişletmesi
 │   └── res_partner.py           # res.partner genişletmesi
 ├── views/                       # XML görünüm tanımları
 │   ├── transport_order_views.xml
 │   ├── transport_stop_views.xml
 │   ├── vehicle_assignment_views.xml
+│   ├── driver_views.xml
+│   ├── vehicle_document_views.xml
 │   ├── carrier_document_views.xml
+│   ├── fleet_vehicle_views.xml
 │   ├── res_partner_views.xml
 │   └── menu_views.xml
+├── controllers/                 # URL routing
+│   └── main.py                  # /sevkiyatlar endpoint
 ├── security/                    # Erişim hakları
 │   ├── ir.model.access.csv
 │   └── transport_security.xml
 ├── data/                        # Sequence, varsayılan veriler
-│   └── transport_data.xml
-├── wizards/                     # Fatura sihirbazı
-│   └── transport_invoice_wizard.py
-├── reports/                     # PDF raporu
-│   └── transport_order_report.py
+│   ├── transport_data.xml
+│   └── vsl_reference_data.xml
+├── wizards/                     # Sihirbazlar
+│   ├── transport_invoice_wizard.py
+│   └── transport_assignment_wizard.py
+├── reports/                     # Raporlar
+│   └── transport_order_report.xml
 ├── i18n/                        # Çeviriler
 │   ├── tr.po
 │   └── vsl_transport.pot

@@ -89,6 +89,18 @@ docker compose -f ~/dev/odoo/docker-compose.yml logs -f web
 - ✅ Modül dizini direkt bind mount edildi (docker-compose.yml): `~/dev/vsl-tms-odoo/vsl_transport:/mnt/extra-addons/vsl_transport`
 - Odoo config dosyası: `~/dev/odoo/config/odoo.conf` (DB bilgileri dahil edilmeli)
 
+### Dosya Yükleme (Evrak Modelleri)
+- ❌ `attachment_id = fields.Many2one('ir.attachment')` → many2one dropdown ALL files in system
+- ✅ `datas = fields.Binary(attachment=False)` + `widget="binary"` → doğru upload widget
+- Her üç evrak modeli (`vehicle_document`, `driver_document`, `carrier_document`) `datas` Binary kullanır
+- Inline one2many tree'de dosya yüklemesi: satıra çift tıklayıp form açılınca yapılır
+
+### View İrsaliyeti Sorunları
+- View inheritance ile yapılan değişiklikler DB'de eski view kalıntıları bırakabilir
+- `<field name="x">` → `<field name="y">` gibi alan değişikliklerinde eski view hâlâ DB'de olabilir
+- Çözüm: `DELETE FROM ir_ui_view WHERE model = 'x.y.z' AND name LIKE '%custom%';`
+- Birden fazla upgrade sonrası hâlâ aynı uyarı geliyorsa: tüm view kayıtlarını silip yeniden yükle
+
 ## Modül Mimarisi
 
 ```
@@ -98,8 +110,14 @@ Sevkiyat Emri (vsl.transport.order)
 ├── Araç Ataması (vsl.vehicle.assignment) [1:N, araç+sürücü]
 └── Faturalar (account.move) [M:N]
 
+Sürücü (vsl.driver.profile) [1:N]
+└── Evraklar (vsl.driver.document) [1:N, ehliyet/src/psikoteknik]
+
+Araç (fleet.vehicle) [1:N]
+└── Evraklar (vsl.vehicle.document) [1:N, sigorta/ruhsat/muayene]
+
 Tedarikçi (res.partner, is_carrier=True)
-└── Evraklar (vsl.carrier.document) [1:N, ehliyet/ruhsat/sigorta]
+└── Evraklar (vsl.carrier.document) [1:N, ehliyet/ruhsat/sigorta/src]
 ```
 
 ## İş Akışı
