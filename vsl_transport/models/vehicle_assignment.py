@@ -50,6 +50,14 @@ class VslVehicleAssignment(models.Model):
                     _("You must provide either a fleet vehicle or an external plate.")
                 )
 
+    @api.constrains("order_id")
+    def _check_max_assignments_per_order(self):
+        for rec in self:
+            if rec.order_id and len(rec.order_id.assignment_ids) > 2:
+                raise ValidationError(
+                    _("A transport order can have at most 2 vehicle assignments.")
+                )
+
     @api.model_create_multi
     def create(self, vals_list):
         records = super().create(vals_list)

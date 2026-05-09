@@ -77,10 +77,11 @@
                     </group>
                     <group string="Pozisyon Bilgileri" invisible="not assignment_ids">
                         <field name="assignment_ids" options="{'no_open': True}">
-                            <list create="false" edit="false" delete="false">
+                            <list create="true" edit="true" delete="true">
                                 <field name="driver_id"/>
                                 <field name="vehicle_id"/>
                                 <field name="external_vehicle_plate"/>
+                                <field name="state"/>
                             </list>
                         </field>
                     </group>

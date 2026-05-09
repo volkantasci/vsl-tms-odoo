@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="vsl_brand_volvo" model="fleet.vehicle.model.brand">
+            <field name="name">Volvo</field>
+        </record>
+        <record id="vsl_brand_mercedes" model="fleet.vehicle.model.brand">
+            <field name="name">Mercedes</field>
+        </record>
+        <record id="vsl_brand_scania" model="fleet.vehicle.model.brand">
+            <field name="name">Scania</field>
+        </record>
+        <record id="vsl_brand_daf" model="fleet.vehicle.model.brand">
+            <field name="name">DAF</field>
+        </record>
+        <record id="vsl_brand_man" model="fleet.vehicle.model.brand">
+            <field name="name">MAN</field>
+        </record>
+        <record id="vsl_brand_iveco" model="fleet.vehicle.model.brand">
+            <field name="name">Iveco</field>
+        </record>
+        <record id="vsl_brand_ford" model="fleet.vehicle.model.brand">
+            <field name="name">Ford</field>
+        </record>
+        <record id="vsl_brand_renault" model="fleet.vehicle.model.brand">
+            <field name="name">Renault</field>
+        </record>
+        <record id="vsl_brand_kamaz" model="fleet.vehicle.model.brand">
+            <field name="name">Kamaz</field>
+        </record>
+        <record id="vsl_brand_bpw" model="fleet.vehicle.model.brand">
+            <field name="name">BPW</field>
+        </record>
+        <record id="vsl_brand_schwaben" model="fleet.vehicle.model.brand">
+            <field name="name">Schwaben</field>
+        </record>
+
+        <record id="vsl_model_volvo_fh" model="fleet.vehicle.model">
+            <field name="name">Volvo FH</field>
+            <field name="brand_id" ref="vsl_brand_volvo"/>
+            
+        </record>
+
+        <record id="vsl_model_volvo_fm" model="fleet.vehicle.model">
+            <field name="name">Volvo FM</field>
+            <field name="brand_id" ref="vsl_brand_volvo"/>
+            
+        </record>
+
+        <record id="vsl_model_volvo_fmx" model="fleet.vehicle.model">
+            <field name="name">Volvo FMX</field>
+            <field name="brand_id" ref="vsl_brand_volvo"/>
+            
+        </record>
+
+        <record id="vsl_model_mercedes_actros" model="fleet.vehicle.model">
+            <field name="name">Mercedes Actros</field>
+            <field name="brand_id" ref="vsl_brand_mercedes"/>
+            
+        </record>
+
+        <record id="vsl_model_mercedes_atego" model="fleet.vehicle.model">
+            <field name="name">Mercedes Atego</field>
+            <field name="brand_id" ref="vsl_brand_mercedes"/>
+            
+        </record>
+
+        <record id="vsl_model_mercedes_axor" model="fleet.vehicle.model">
+            <field name="name">Mercedes Axor</field>
+            <field name="brand_id" ref="vsl_brand_mercedes"/>
+            
+        </record>
+
+        <record id="vsl_model_scania_r" model="fleet.vehicle.model">
+            <field name="name">Scania R</field>
+            <field name="brand_id" ref="vsl_brand_scania"/>
+            
+        </record>
+
+        <record id="vsl_model_scania_g" model="fleet.vehicle.model">
+            <field name="name">Scania G</field>
+            <field name="brand_id" ref="vsl_brand_scania"/>
+            
+        </record>
+
+        <record id="vsl_model_scania_p" model="fleet.vehicle.model">
+            <field name="name">Scania P</field>
+            <field name="brand_id" ref="vsl_brand_scania"/>
+            
+        </record>
+
+        <record id="vsl_model_daf_xf" model="fleet.vehicle.model">
+            <field name="name">DAF XF</field>
+            <field name="brand_id" ref="vsl_brand_daf"/>
+            
+        </record>
+
+        <record id="vsl_model_daf_cf" model="fleet.vehicle.model">
+            <field name="name">DAF CF</field>
+            <field name="brand_id" ref="vsl_brand_daf"/>
+            
+        </record>
+
+        <record id="vsl_model_man_tgx" model="fleet.vehicle.model">
+            <field name="name">MAN TGX</field>
+            <field name="brand_id" ref="vsl_brand_man"/>
+            
+        </record>
+
+        <record id="vsl_model_man_tgm" model="fleet.vehicle.model">
+            <field name="name">MAN TGM</field>
+            <field name="brand_id" ref="vsl_brand_man"/>
+            
+        </record>
+
+        <record id="vsl_model_iveco_stralis" model="fleet.vehicle.model">
+            <field name="name">Iveco Stralis</field>
+            <field name="brand_id" ref="vsl_brand_iveco"/>
+            
+        </record>
+
+        <record id="vsl_model_iveco_daily" model="fleet.vehicle.model">
+            <field name="name">Iveco Daily</field>
+            <field name="brand_id" ref="vsl_brand_iveco"/>
+            
+        </record>
+
+        <record id="vsl_model_ford_transit" model="fleet.vehicle.model">
+            <field name="name">Ford Transit</field>
+            <field name="brand_id" ref="vsl_brand_ford"/>
+            
+        </record>
+
+        <record id="vsl_model_ford_truck" model="fleet.vehicle.model">
+            <field name="name">Ford Truck</field>
+            <field name="brand_id" ref="vsl_brand_ford"/>
+            
+        </record>
+
+        <record id="vsl_model_renault_magnum" model="fleet.vehicle.model">
+            <field name="name">Renault Magnum</field>
+            <field name="brand_id" ref="vsl_brand_renault"/>
+            
+        </record>
+
+        <record id="vsl_model_renault_midlum" model="fleet.vehicle.model">
+            <field name="name">Renault Midlum</field>
+            <field name="brand_id" ref="vsl_brand_renault"/>
+            
+        </record>
+
+        <record id="vsl_model_kamaz_5490" model="fleet.vehicle.model">
+            <field name="name">Kamaz 5490</field>
+            <field name="brand_id" ref="vsl_brand_kamaz"/>
+            
+        </record>
+
+        <record id="vsl_model_bpw_dorse" model="fleet.vehicle.model">
+            <field name="name">BPW Dorse</field>
+            <field name="brand_id" ref="vsl_brand_bpw"/>
+            
+        </record>
+
+        <record id="vsl_model_schwaben_dorse" model="fleet.vehicle.model">
+            <field name="name">Schwaben Dorse</field>
+            <field name="brand_id" ref="vsl_brand_schwaben"/>
+            
+        </record>
+
+    </data>
+</odoo>

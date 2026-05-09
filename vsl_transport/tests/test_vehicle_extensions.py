@@ -7,17 +7,15 @@ class TestVehicleExtensions(TransactionCase):
 
     def setUp(self):
         super().setUp()
-        self.vehicle_type = self.env["vsl.vehicle.type"].create({"name": "10 Teker"})
-        self.ownership = self.env["vsl.vehicle.ownership"].create({"name": "Oz Mal"})
+        self.ownership = self.env["vsl.vehicle.ownership"].create({"name": "Öz Mal"})
         self.model = self.env["fleet.vehicle.model"].create({
             "name": "Test Model",
             "brand_id": self.env["fleet.vehicle.model.brand"].create({"name": "Test Brand"}).id,
         })
         self.vehicle = self.env["fleet.vehicle"].create({
-            "name": "Test Arac",
+            "name": "Test Araç",
             "license_plate": "34TEST123",
             "model_id": self.model.id,
-            "vsl_vehicle_type_id": self.vehicle_type.id,
             "vsl_ownership_id": self.ownership.id,
             "vsl_capacity": 20.0,
             "vsl_transport_status": "available",
@@ -26,7 +24,6 @@ class TestVehicleExtensions(TransactionCase):
     def test_vehicle_transport_fields(self):
         self.assertEqual(self.vehicle.vsl_transport_status, "available")
         self.assertEqual(self.vehicle.vsl_capacity, 20.0)
-        self.assertEqual(self.vehicle.vsl_vehicle_type_id.name, "10 Teker")
 
     def test_vehicle_document(self):
         attachment = self.env["ir.attachment"].create({

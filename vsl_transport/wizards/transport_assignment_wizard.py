@@ -54,6 +54,9 @@ class VslTransportAssignmentWizard(models.TransientModel):
         if not self.vehicle_id and not self.external_vehicle_plate:
             raise UserError(_("Please select a vehicle or enter an external plate."))
 
+        if len(order.assignment_ids) >= 2:
+            raise UserError(_("A transport order can have at most 2 vehicle assignments."))
+
         assignment_vals = {
             "order_id": order.id,
             "driver_id": self.driver_id.id,
@@ -62,9 +65,6 @@ class VslTransportAssignmentWizard(models.TransientModel):
             "assignment_date": fields.Datetime.now(),
             "state": "assigned",
         }
-
-        if order.assignment_ids:
-            order.assignment_ids.unlink()
 
         self.env["vsl.vehicle.assignment"].create(assignment_vals)
 

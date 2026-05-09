@@ -6,10 +6,10 @@
             <field name="name">Tedarik</field>
         </record>
         <record id="driver_type_contracted" model="vsl.driver.type">
-            <field name="name">Sozlesmeli</field>
+            <field name="name">Sözleşmeli</field>
         </record>
         <record id="driver_type_non_contracted" model="vsl.driver.type">
-            <field name="name">Sozlesmesiz</field>
+            <field name="name">Sözleşmesiz</field>
         </record>
 
         <record id="vehicle_type_kamyonet" model="vsl.vehicle.type">
@@ -18,9 +18,6 @@
         <record id="vehicle_type_6teker" model="vsl.vehicle.type">
             <field name="name">6 Teker</field>
         </record>
-        <record id="vehicle_type_atego" model="vsl.vehicle.type">
-            <field name="name">Atego</field>
-        </record>
         <record id="vehicle_type_10teker" model="vsl.vehicle.type">
             <field name="name">10 Teker</field>
         </record>
@@ -28,7 +25,7 @@
             <field name="name">40 Ayak</field>
         </record>
         <record id="vehicle_type_cekici" model="vsl.vehicle.type">
-            <field name="name">Cekici</field>
+            <field name="name">Çekici</field>
         </record>
         <record id="vehicle_type_dorse" model="vsl.vehicle.type">
             <field name="name">Dorse</field>
@@ -40,7 +37,7 @@
             <field name="name">Forklift</field>
         </record>
         <record id="vehicle_type_vinc" model="vsl.vehicle.type">
-            <field name="name">Vinc</field>
+            <field name="name">Vinç</field>
         </record>
 
         <record id="trailer_class_tenteli" model="vsl.vehicle.trailer.class">
@@ -68,7 +65,7 @@
         </record>
 
         <record id="ownership_ozmal" model="vsl.vehicle.ownership">
-            <field name="name">Oz Mal</field>
+            <field name="name">Öz Mal</field>
         </record>
         <record id="ownership_tedarik" model="vsl.vehicle.ownership">
             <field name="name">Tedarik</field>
