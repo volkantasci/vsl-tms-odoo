@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vsl_transport_assignment_wizard" model="ir.ui.view">
+        <field name="name">vsl.transport.assignment.wizard.form</field>
+        <field name="model">vsl.transport.assignment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pozisyon Bilgileri">
+                <group>
+                    <group string="Tedarikçi / Şoför">
+                        <field name="driver_id" options="{'no_create': False}"/>
+                    </group>
+                    <group string="Araç Bilgisi">
+                        <field name="vehicle_id" options="{'no_create': False}"/>
+                        <field name="external_vehicle_plate"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_assign" string="Kaydet ve Ata" type="object" class="btn-primary"/>
+                    <button string="İptal" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vsl_transport_assignment_wizard" model="ir.actions.act_window">
+        <field name="name">Pozisyon Bilgileri</field>
+        <field name="res_model">vsl.transport.assignment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

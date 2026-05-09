@@ -9,6 +9,9 @@
                   decoration-success="state == 'invoiced'">
                 <field name="name"/>
                 <field name="customer_id"/>
+                <field name="customer_order_ref"/>
+                <field name="loading_location_id"/>
+                <field name="unloading_location_id"/>
                 <field name="state" widget="badge"/>
                 <field name="planned_date_start"/>
                 <field name="planned_date_end"/>
@@ -27,8 +30,8 @@
                     <button name="action_confirm" type="object"
                             string="Onayla" class="btn-primary"
                             invisible="state != 'draft'"/>
-                    <button name="action_assign" type="object"
-                            string="Ata" class="btn-primary"
+                    <button name="action_open_assignment_wizard" type="object"
+                            string="Pozisyon Bilgileri" class="btn-primary"
                             invisible="state != 'open'"/>
                     <button name="action_start_loading" type="object"
                             string="Yüklemeye Başla" class="btn-primary"
@@ -42,6 +45,9 @@
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
                             string="Fatura Oluştur" class="btn-success"
                             invisible="state != 'delivered'"/>
+                    <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
+                            string="Yeniden Fatura Oluştur" class="btn-warning"
+                            invisible="state != 'invoiced'"/>
                     <button name="action_view_history" type="object"
                             string="Geçmiş" class="btn-secondary"
                             invisible="state in ('draft', 'open')"/>
@@ -57,6 +63,7 @@
                     <group>
                         <group string="Müşteri ve Tarihler">
                             <field name="customer_id"/>
+                            <field name="customer_order_ref"/>
                             <field name="planned_date_start"/>
                             <field name="planned_date_end"/>
                         </group>
@@ -68,11 +75,17 @@
                             <field name="actual_date_end" readonly="1"/>
                         </group>
                     </group>
+                    <group string="Pozisyon Bilgileri" invisible="not assignment_ids">
+                        <field name="assignment_ids" options="{'no_open': True}">
+                            <list create="false" edit="false" delete="false">
+                                <field name="driver_id"/>
+                                <field name="vehicle_id"/>
+                                <field name="external_vehicle_plate"/>
+                            </list>
+                        </field>
+                    </group>
                     <group string="Duraklar (Yükleme / Boşaltma)">
                         <field name="stop_ids"/>
-                    </group>
-                    <group string="Araç ve Sürücü Ataması">
-                        <field name="assignment_ids"/>
                     </group>
                     <group string="Notlar">
                         <field name="notes"/>
@@ -89,6 +102,7 @@
             <search string="Sevkiyat Ara">
                 <field name="name"/>
                 <field name="customer_id"/>
+                <field name="customer_order_ref"/>
                 <filter name="draft" string="Taslak" domain="[('state', '=', 'draft')]"/>
                 <filter name="open" string="Açık" domain="[('state', '=', 'open')]"/>
                 <filter name="assigned" string="Atandı" domain="[('state', '=', 'assigned')]"/>

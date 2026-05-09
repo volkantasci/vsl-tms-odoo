@@ -23,12 +23,11 @@ class VslTransportStop(models.Model):
     )
     address_id = fields.Many2one(
         "res.partner",
-        string="Address",
+        string="Müşteri / Adres",
         required=True,
-        domain=[("is_company", "=", False)],
+        domain=[("parent_id", "=", False)],
     )
-    location_id = fields.Many2one("vsl.location", string="Location")
-    planned_date = fields.Datetime(string="Planned Date")
+    planned_date = fields.Datetime(string="Planlanan Tarih")
     actual_date = fields.Datetime(string="Actual Date")
     state = fields.Selection(
         [
@@ -61,8 +60,13 @@ class VslTransportStopLine(models.Model):
     )
     customer_id = fields.Many2one(
         "res.partner",
-        string="Customer",
+        string="Müşteri",
+        domain=[("parent_id", "=", False)],
     )
-    product_desc = fields.Char(string="Product Description")
-    quantity = fields.Float(string="Quantity")
-    weight = fields.Float(string="Weight (kg)")
+    product_id = fields.Many2one(
+        "product.product",
+        string="Ürün",
+    )
+    product_desc = fields.Char(string="Ürün Açıklaması")
+    quantity = fields.Float(string="Miktar")
+    weight = fields.Float(string="Ağırlık (kg)")

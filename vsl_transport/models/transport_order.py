@@ -9,6 +9,15 @@ class VslTransportOrder(models.Model):
     _rec_name = "name"
     _order = "create_date desc"
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("name", _("New")) == _("New"):
+                vals["name"] = self.env["ir.sequence"].next_by_code(
+                    "vsl.transport.order"
+                ) or _("New")
+        return super().create(vals_list)
+
     name = fields.Char(
         string="Order Reference",
         required=True,
@@ -20,8 +29,16 @@ class VslTransportOrder(models.Model):
         "res.partner",
         string="Customer",
         required=True,
-        domain=[("is_company", "=", True)],
+        domain=[
+            ("is_company", "=", True),
+            ("parent_id", "=", False),
+        ],
         tracking=True,
+        index=True,
+    )
+    customer_order_ref = fields.Char(
+        string="Müşteri Sipariş No",
+        copy=False,
         index=True,
     )
     state = fields.Selection(
@@ -79,6 +96,40 @@ class VslTransportOrder(models.Model):
         required=True,
     )
 
+    loading_location_id = fields.Many2one(
+        "res.partner",
+        string="Yükleme Lokasyonu",
+        compute="_compute_locations",
+        store=True,
+    )
+    unloading_location_id = fields.Many2one(
+        "res.partner",
+        string="Boşaltma Lokasyonu",
+        compute="_compute_locations",
+        store=True,
+    )
+
+    @api.depends("stop_ids")
+    def _compute_locations(self):
+        for order in self:
+            loading_stops = order.stop_ids.filtered(lambda s: s.stop_type == "loading")
+            unloading_stops = order.stop_ids.filtered(lambda s: s.stop_type == "unloading")
+            order.loading_location_id = loading_stops[:1].address_id if loading_stops else False
+            order.unloading_location_id = unloading_stops[-1:].address_id if unloading_stops else False
+
+    def action_open_assignment_wizard(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window",
+            "name": _("Pozisyon Bilgileri"),
+            "res_model": "vsl.transport.assignment.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_order_id": self.id,
+            },
+        }
+
     def action_confirm(self):
         for order in self:
             if order.state != "draft":
@@ -92,23 +143,6 @@ class VslTransportOrder(models.Model):
                     _("At least one loading and one unloading stop is required.")
                 )
             order.state = "open"
-
-    def action_assign(self):
-        for order in self:
-            if order.state != "open":
-                raise UserError(_("Only open orders can be assigned."))
-            if not order.assignment_ids:
-                raise UserError(
-                    _("Please create a vehicle assignment before assigning.")
-                )
-            valid_assignments = order.assignment_ids.filtered(
-                lambda a: a.state == "assigned"
-            )
-            if not valid_assignments:
-                raise UserError(
-                    _("No active assignment found. All assignments must be in 'Assigned' state.")
-                )
-            order.state = "assigned"
 
     def action_cancel(self):
         for order in self:

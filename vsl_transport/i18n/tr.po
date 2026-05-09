@@ -80,6 +80,11 @@ msgid "Customer"
 msgstr "Müşteri"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__customer_order_ref
+msgid "Müşteri Sipariş No"
+msgstr "Müşteri Sipariş No"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__state
 msgid "Status"
 msgstr "Durum"

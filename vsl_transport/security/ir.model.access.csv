@@ -55,7 +55,5 @@ access_vsl_vehicle_document_user,vsl.vehicle.document.user,model_vsl_vehicle_doc
 access_vsl_vehicle_document_manager,vsl.vehicle.document.manager,model_vsl_vehicle_document,group_vsl_transport_manager,1,1,1,1
 access_vsl_vehicle_document_garage,vsl.vehicle.document.garage,model_vsl_vehicle_document,group_vsl_garage_operator,1,1,1,1
 access_vsl_vehicle_document_admin,vsl.vehicle.document.admin,model_vsl_vehicle_document,base.group_system,1,1,1,1
-access_vsl_location_user,vsl.location.user,model_vsl_location,group_vsl_transport_user,1,1,1,0
-access_vsl_location_manager,vsl.location.manager,model_vsl_location,group_vsl_transport_manager,1,1,1,1
-access_vsl_location_garage,vsl.location.garage,model_vsl_location,group_vsl_garage_operator,1,0,0,0
-access_vsl_location_admin,vsl.location.admin,model_vsl_location,base.group_system,1,1,1,1
+access_vsl_transport_assignment_wizard_user,vsl.transport.assignment.wizard.user,model_vsl_transport_assignment_wizard,base.group_user,1,1,1,0
+access_vsl_transport_invoice_wizard_user,vsl.transport.invoice.wizard.user,model_vsl_transport_invoice_wizard,base.group_user,1,1,1,0

@@ -11,7 +11,7 @@ class VslCarrierDocument(models.Model):
         "res.partner",
         string="Carrier",
         required=True,
-        domain=[("is_carrier", "=", True)],
+        domain=[("parent_id", "=", False)],
         ondelete="cascade",
         index=True,
     )

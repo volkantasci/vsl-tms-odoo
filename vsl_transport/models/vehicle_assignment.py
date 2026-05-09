@@ -24,7 +24,7 @@ class VslVehicleAssignment(models.Model):
         "res.partner",
         string="Driver / Carrier",
         required=True,
-        domain=[("is_carrier", "=", True)],
+        domain=[("parent_id", "=", False)],
     )
     assignment_date = fields.Datetime(
         string="Assignment Date",

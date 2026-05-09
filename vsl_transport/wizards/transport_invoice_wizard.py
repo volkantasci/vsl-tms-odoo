@@ -26,7 +26,7 @@ class VslTransportInvoiceWizard(models.TransientModel):
     supplier_id = fields.Many2one(
         "res.partner",
         string="Supplier / Carrier",
-        domain="[('is_carrier', '=', True)]",
+        domain="[('parent_id', '=', False)]",
     )
     supplier_invoice_amount = fields.Monetary(
         string="Supplier Invoice Amount",
@@ -59,10 +59,14 @@ class VslTransportInvoiceWizard(models.TransientModel):
         self.ensure_one()
         order = self.order_id
 
-        if order.state != "delivered":
+        if order.state not in ("delivered", "invoiced"):
             raise UserError(
                 _("Invoices can only be created for delivered orders.")
             )
+
+        if order.state == "invoiced" and order.invoice_ids:
+            order.invoice_ids.unlink()
+            order.state = "delivered"
 
         customer = order.customer_id
         if not customer:
