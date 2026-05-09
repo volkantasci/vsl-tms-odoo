@@ -15,8 +15,8 @@ class VslTransportStop(models.Model):
     sequence = fields.Integer(string="Sequence", default=10)
     stop_type = fields.Selection(
         [
-            ("loading", "Loading"),
-            ("unloading", "Unloading"),
+            ("loading", "Yükleme"),
+            ("unloading", "Boşaltma"),
         ],
         string="Stop Type",
         required=True,
@@ -32,9 +32,9 @@ class VslTransportStop(models.Model):
     actual_date = fields.Datetime(string="Actual Date")
     state = fields.Selection(
         [
-            ("pending", "Pending"),
-            ("done", "Done"),
-            ("cancelled", "Cancelled"),
+            ("pending", "Bekliyor"),
+            ("done", "Tamamlandı"),
+            ("cancelled", "İptal"),
         ],
         string="Status",
         default="pending",

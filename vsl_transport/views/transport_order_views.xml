@@ -24,37 +24,31 @@
         <field name="arch" type="xml">
             <form string="Sevkiyat Emri">
                 <header>
-                    <field name="show_confirm" invisible="1"/>
-                    <field name="show_assign" invisible="1"/>
-                    <field name="show_start_loading" invisible="1"/>
-                    <field name="show_depart" invisible="1"/>
-                    <field name="show_deliver" invisible="1"/>
-                    <field name="show_invoice" invisible="1"/>
-                    <field name="show_cancel" invisible="1"/>
                     <button name="action_confirm" type="object"
                             string="Onayla" class="btn-primary"
-                            invisible="not show_confirm"/>
+                            invisible="state != 'draft'"/>
                     <button name="action_assign" type="object"
                             string="Ata" class="btn-primary"
-                            invisible="not show_assign"/>
+                            invisible="state != 'open'"/>
                     <button name="action_start_loading" type="object"
                             string="Yüklemeye Başla" class="btn-primary"
-                            invisible="not show_start_loading"/>
+                            invisible="state != 'assigned'"/>
                     <button name="action_depart" type="object"
                             string="Yola Çıktı" class="btn-primary"
-                            invisible="not show_depart"/>
+                            invisible="state != 'loading'"/>
                     <button name="action_deliver" type="object"
-                            string="Teslim Edildi" class="btn-primary"
-                            invisible="not show_deliver"/>
-                    <button name="action_view_history" type="object"
-                            string="Geçmiş Sevkiyatlar" class="btn-secondary"/>
+                            string="Teslim Et" class="btn-primary"
+                            invisible="state != 'in_transit'"/>
                     <button name="%(action_vsl_transport_invoice_wizard)d" type="action"
-                            string="Fatura Oluştur" class="btn-primary"
-                            invisible="not show_invoice"/>
+                            string="Fatura Oluştur" class="btn-success"
+                            invisible="state != 'delivered'"/>
+                    <button name="action_view_history" type="object"
+                            string="Geçmiş" class="btn-secondary"
+                            invisible="state in ('draft', 'open')"/>
                     <button name="action_cancel" type="object"
-                            string="İptal"
-                            invisible="not show_cancel"/>
-                    <field name="state" widget="statusbar"/>
+                            string="İptal" class="btn-danger"
+                            invisible="state in ('delivered', 'invoiced', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,assigned,loading,in_transit,delivered,invoiced"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

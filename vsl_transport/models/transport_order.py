@@ -79,36 +79,6 @@ class VslTransportOrder(models.Model):
         required=True,
     )
 
-    show_confirm = fields.Boolean(compute="_compute_button_visibility")
-    show_assign = fields.Boolean(compute="_compute_button_visibility")
-    show_start_loading = fields.Boolean(compute="_compute_button_visibility")
-    show_depart = fields.Boolean(compute="_compute_button_visibility")
-    show_deliver = fields.Boolean(compute="_compute_button_visibility")
-    show_invoice = fields.Boolean(compute="_compute_button_visibility")
-    show_cancel = fields.Boolean(compute="_compute_button_visibility")
-
-    @api.depends("state")
-    def _compute_button_visibility(self):
-        for order in self:
-            order.show_confirm = order.state == "draft"
-            order.show_assign = order.state == "open"
-            order.show_start_loading = order.state == "assigned"
-            order.show_depart = order.state == "loading"
-            order.show_deliver = order.state == "in_transit"
-            order.show_invoice = order.state == "delivered"
-            order.show_cancel = order.state in (
-                "draft", "open", "assigned", "loading", "in_transit",
-            )
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if vals.get("name", _("New")) == _("New"):
-                vals["name"] = self.env["ir.sequence"].next_by_code(
-                    "vsl.transport.order"
-                ) or _("New")
-        return super().create(vals_list)
-
     def action_confirm(self):
         for order in self:
             if order.state != "draft":

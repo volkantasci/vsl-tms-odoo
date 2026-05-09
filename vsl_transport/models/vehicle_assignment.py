@@ -32,10 +32,10 @@ class VslVehicleAssignment(models.Model):
     )
     state = fields.Selection(
         [
-            ("assigned", "Assigned"),
-            ("departed", "Departed"),
-            ("completed", "Completed"),
-            ("cancelled", "Cancelled"),
+            ("assigned", "Atandı"),
+            ("departed", "Yola Çıktı"),
+            ("completed", "Tamamlandı"),
+            ("cancelled", "İptal"),
         ],
         string="Status",
         default="assigned",
