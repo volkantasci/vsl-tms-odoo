@@ -33,27 +33,19 @@ class TestDriverDocument(TransactionCase):
         })
 
     def test_create_document(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "license.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.driver.document"].create({
             "driver_id": self.driver.id,
             "doc_type": "driving_license",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy file content"),
             "expiry_date": "2028-01-01",
         })
         self.assertEqual(doc.state, "valid")
 
     def test_document_expired(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "old_license.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.driver.document"].create({
             "driver_id": self.driver.id,
             "doc_type": "driving_license",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy file content"),
             "expiry_date": "2020-01-01",
         })
         self.assertEqual(doc.state, "expired")

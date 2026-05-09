@@ -168,28 +168,20 @@ class TestCarrierDocument(TransactionCase):
         })
 
     def test_create_document(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "test_license.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.carrier.document"].create({
             "carrier_id": self.carrier.id,
             "doc_type": "driving_license",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy license content"),
             "issue_date": "2026-01-01",
             "expiry_date": "2028-01-01",
         })
         self.assertEqual(doc.state, "valid")
 
     def test_document_expiry(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "expired_license.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.carrier.document"].create({
             "carrier_id": self.carrier.id,
             "doc_type": "driving_license",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy license content"),
             "expiry_date": "2020-01-01",
         })
         self.assertEqual(doc.state, "expired")

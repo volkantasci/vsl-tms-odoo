@@ -133,8 +133,7 @@ draft ──────────▶ open ──▶ assigned ─────�
 
 ## Test Durumu
 
-- Transport order testleri: 12/12 geçiyor
-- Document testleri: 6 hata (attachment_id field eski testlerden kalan, model `datas` Binary kullanıyor)
+- 18/18 test geçiyor
 
 ## Odoo Konfigürasyonu
 

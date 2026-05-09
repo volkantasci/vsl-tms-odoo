@@ -26,27 +26,19 @@ class TestVehicleExtensions(TransactionCase):
         self.assertEqual(self.vehicle.vsl_capacity, 20.0)
 
     def test_vehicle_document(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "insurance.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.vehicle.document"].create({
             "vehicle_id": self.vehicle.id,
             "doc_type": "insurance",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy insurance content"),
             "expiry_date": "2028-01-01",
         })
         self.assertEqual(doc.state, "valid")
 
     def test_vehicle_document_expired(self):
-        attachment = self.env["ir.attachment"].create({
-            "name": "old_insurance.pdf",
-            "datas": base64.b64encode(b"dummy"),
-        })
         doc = self.env["vsl.vehicle.document"].create({
             "vehicle_id": self.vehicle.id,
             "doc_type": "insurance",
-            "attachment_id": attachment.id,
+            "datas": base64.b64encode(b"dummy insurance content"),
             "expiry_date": "2020-01-01",
         })
         self.assertEqual(doc.state, "expired")
