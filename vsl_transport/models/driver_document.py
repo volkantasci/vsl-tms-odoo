@@ -3,40 +3,40 @@ from odoo import api, fields, models
 
 class VslDriverDocument(models.Model):
     _name = "vsl.driver.document"
-    _description = "Sürücü Evrakı"
+    _description = "Driver Document"
     _rec_name = "doc_type"
     _order = "expiry_date asc nulls last"
 
     driver_id = fields.Many2one(
         "vsl.driver.profile",
-        string="Sürücü",
+        string="Driver",
         required=True,
         ondelete="cascade",
         index=True,
     )
     doc_type = fields.Selection(
         [
-            ("driving_license", "Ehliyet"),
-            ("src_certificate", "SRC Belgesi"),
-            ("psychotechnic", "Psikoteknik"),
-            ("other", "Diğer"),
+            ("driving_license", "Driving License"),
+            ("src_certificate", "SRC Certificate"),
+            ("psychotechnic", "Psychotechnic"),
+            ("other", "Other"),
         ],
-        string="Evrak Tipi",
+        string="Document Type",
         required=True,
     )
-    datas = fields.Binary(string="Dosya", attachment=False)
-    issue_date = fields.Date(string="Düzenlenme Tarihi")
-    expiry_date = fields.Date(string="Son Geçerlilik Tarihi")
+    datas = fields.Binary(string="File", attachment=False)
+    issue_date = fields.Date(string="Issue Date")
+    expiry_date = fields.Date(string="Expiry Date")
     state = fields.Selection(
         [
-            ("valid", "Geçerli"),
-            ("expired", "Süresi Doldu"),
+            ("valid", "Valid"),
+            ("expired", "Expired"),
         ],
-        string="Durum",
+        string="Status",
         default="valid",
         compute="_compute_state",
     )
-    notes = fields.Text(string="Notlar")
+    notes = fields.Text(string="Notes")
 
     @api.depends("expiry_date")
     def _compute_state(self):

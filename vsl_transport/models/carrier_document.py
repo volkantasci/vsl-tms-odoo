@@ -3,13 +3,13 @@ from odoo import api, fields, models
 
 class VslCarrierDocument(models.Model):
     _name = "vsl.carrier.document"
-    _description = "Tedarikçi Evrakı"
+    _description = "Carrier Document"
     _rec_name = "doc_type"
     _order = "expiry_date asc nulls last"
 
     carrier_id = fields.Many2one(
         "res.partner",
-        string="Tedarikçi",
+        string="Carrier",
         required=True,
         domain=[("parent_id", "=", False)],
         ondelete="cascade",
@@ -17,24 +17,24 @@ class VslCarrierDocument(models.Model):
     )
     doc_type = fields.Selection(
         [
-            ("driving_license", "Ehliyet"),
-            ("vehicle_registration", "Ruhsat"),
-            ("insurance", "Sigorta"),
-            ("src_certificate", "SRC Belgesi"),
-            ("other", "Diğer"),
+            ("driving_license", "Driving License"),
+            ("vehicle_registration", "Vehicle Registration"),
+            ("insurance", "Insurance"),
+            ("src_certificate", "SRC Certificate"),
+            ("other", "Other"),
         ],
-        string="Evrak Tipi",
+        string="Document Type",
         required=True,
     )
-    datas = fields.Binary(string="Dosya", attachment=False)
-    issue_date = fields.Date(string="Düzenlenme Tarihi")
-    expiry_date = fields.Date(string="Son Geçerlilik Tarihi")
+    datas = fields.Binary(string="File", attachment=False)
+    issue_date = fields.Date(string="Issue Date")
+    expiry_date = fields.Date(string="Expiry Date")
     state = fields.Selection(
         [
-            ("valid", "Geçerli"),
-            ("expired", "Süresi Doldu"),
+            ("valid", "Valid"),
+            ("expired", "Expired"),
         ],
-        string="Durum",
+        string="Status",
         default="valid",
         compute="_compute_state",
     )

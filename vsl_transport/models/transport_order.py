@@ -37,22 +37,22 @@ class VslTransportOrder(models.Model):
         index=True,
     )
     customer_order_ref = fields.Char(
-        string="Müşteri Sipariş No",
+        string="Customer Order Reference",
         copy=False,
         index=True,
     )
     state = fields.Selection(
         [
-            ("draft", "Taslak"),
-            ("open", "Açık"),
-            ("assigned", "Atandı"),
-            ("loading", "Yüklemede"),
-            ("in_transit", "Yolda"),
-            ("delivered", "Teslim Edildi"),
-            ("invoiced", "Faturalandı"),
-            ("cancelled", "İptal"),
+            ("draft", "Draft"),
+            ("open", "Open"),
+            ("assigned", "Assigned"),
+            ("loading", "Loading"),
+            ("in_transit", "In Transit"),
+            ("delivered", "Delivered"),
+            ("invoiced", "Invoiced"),
+            ("cancelled", "Cancelled"),
         ],
-        string="Durum",
+        string="Status",
         default="draft",
         tracking=True,
         copy=False,
@@ -98,13 +98,13 @@ class VslTransportOrder(models.Model):
 
     loading_location_id = fields.Many2one(
         "res.partner",
-        string="Yükleme Lokasyonu",
+        string="Loading Location",
         compute="_compute_locations",
         store=True,
     )
     unloading_location_id = fields.Many2one(
         "res.partner",
-        string="Boşaltma Lokasyonu",
+        string="Unloading Location",
         compute="_compute_locations",
         store=True,
     )
