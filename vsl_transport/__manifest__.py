@@ -8,7 +8,7 @@ araç ve sürücü ataması (kendi filo + dış tedarikçi),
 tedarikçi evrak yönetimi, geçmiş rota fiyat sorgulama,
 çift yönlü fatura oluşturma.
     """,
-    "version": "19.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Transportation",
     "website": "https://www.vsl.com.tr",
     "author": "VSL",
