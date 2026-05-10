@@ -23,98 +23,39 @@
               action="action_vsl_transport_order"
               sequence="10"/>
 
-    <menuitem id="menu_vsl_carrier_document"
-              name="Tedarikçi Evrakları"
-              parent="menu_vsl_transport_root"
-              action="action_vsl_carrier_document"
-              sequence="20"/>
-
     <record id="action_vsl_vehicle_assignment" model="ir.actions.act_window">
-        <field name="name">Araç Atamaları</field>
+        <field name="name">Pozisyonlar</field>
         <field name="res_model">vsl.vehicle.assignment</field>
         <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_vsl_vehicle_assignment"
-              name="Araç Atamaları"
+              name="Pozisyonlar"
               parent="menu_vsl_transport_root"
               action="action_vsl_vehicle_assignment"
-              sequence="30"/>
+              sequence="20"/>
 
     <menuitem id="menu_vsl_transport_config"
               name="Yapılandırma"
               parent="menu_vsl_transport_root"
-              sequence="90"
-              groups="vsl_transport.group_vsl_transport_manager"/>
+              sequence="90"/>
 
-    <menuitem id="menu_vsl_drivers"
-              name="Sürücüler"
-              parent="menu_vsl_transport_root"
-              sequence="15"/>
-
-    <menuitem id="menu_vsl_driver_profile"
-              name="Sürücü Profilleri"
-              parent="menu_vsl_drivers"
-              action="action_vsl_driver_profile"
+    <menuitem id="menu_vsl_config_vehicles"
+              name="Araçlar"
+              parent="menu_vsl_transport_config"
+              action="fleet.fleet_vehicle_action"
               sequence="10"/>
 
-    <menuitem id="menu_vsl_driver_document"
-              name="Sürücü Evrakları"
-              parent="menu_vsl_drivers"
-              action="action_vsl_driver_document"
+    <menuitem id="menu_vsl_config_suppliers"
+              name="Tedarikçiler"
+              parent="menu_vsl_transport_config"
+              action="account.res_partner_action_supplier"
               sequence="20"/>
 
-    <menuitem id="menu_vsl_driver_type"
-              name="Sürücü Tipleri"
-              parent="menu_vsl_drivers"
-              action="action_vsl_driver_type"
-              sequence="30"
-              groups="vsl_transport.group_vsl_transport_manager"/>
-
-    <menuitem id="menu_vsl_vehicle_mgmt"
-              name="Araç Yönetimi"
-              parent="menu_vsl_transport_root"
-              sequence="25"/>
-
-    <menuitem id="menu_vsl_vehicle_document"
-              name="Araç Evrakları"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_document"
-              sequence="10"/>
-
-    <menuitem id="menu_vsl_vehicle_type"
-              name="Araç Tipleri"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_type"
-              sequence="20"
-              groups="vsl_transport.group_vsl_transport_manager"/>
-
-    <menuitem id="menu_vsl_vehicle_case_type"
-              name="Kasa Tipleri"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_case_type"
-              sequence="30"
-              groups="vsl_transport.group_vsl_transport_manager"/>
-
-    <menuitem id="menu_vsl_vehicle_trailer_class"
-              name="Dorse Sınıfları"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_trailer_class"
-              sequence="40"
-              groups="vsl_transport.group_vsl_transport_manager"/>
-
-    <menuitem id="menu_vsl_vehicle_pass_system"
-              name="Geçiş Sistemleri"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_pass_system"
-              sequence="50"
-              groups="vsl_transport.group_vsl_transport_manager"/>
-
-    <menuitem id="menu_vsl_vehicle_ownership"
-              name="Sahiplik Durumları"
-              parent="menu_vsl_vehicle_mgmt"
-              action="action_vsl_vehicle_ownership"
-              sequence="60"
-              groups="vsl_transport.group_vsl_transport_manager"/>
+    <menuitem id="menu_vsl_config_customers"
+              name="Müşteriler"
+              parent="menu_vsl_transport_config"
+              action="account.res_partner_action_customer"
+              sequence="30"/>
 
 </odoo>
