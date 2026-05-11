@@ -1,4 +1,6 @@
 from odoo import api, fields, models, _
+import logging
+_logger = logging.getLogger(__name__)
 from odoo.exceptions import UserError
 
 
@@ -56,6 +58,17 @@ class VslTransportAssignmentWizard(models.TransientModel):
 
         if len(order.assignment_ids) >= 2:
             raise UserError(_("A transport order can have at most 2 vehicle assignments."))
+
+        # Check vehicle type compatibility
+        if order.requested_vehicle_type_id and self.vehicle_id:
+            assigned_type = self.vehicle_id.vsl_vehicle_type_id
+            if assigned_type and assigned_type != order.requested_vehicle_type_id:
+                _logger.warning(
+                    "Vehicle type mismatch for order %s: requested %s, assigned %s",
+                    order.name,
+                    order.requested_vehicle_type_id.name,
+                    assigned_type.name,
+                )
 
         assignment_vals = {
             "order_id": order.id,

@@ -1,5 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class VslVehicleAssignment(models.Model):
@@ -57,6 +59,19 @@ class VslVehicleAssignment(models.Model):
                 raise ValidationError(
                     _("A transport order can have at most 2 vehicle assignments.")
                 )
+
+    @api.constrains("order_id", "vehicle_id")
+    def _check_vehicle_type_compatibility(self):
+        for rec in self:
+            if rec.order_id.requested_vehicle_type_id and rec.vehicle_id:
+                assigned_type = rec.vehicle_id.vsl_vehicle_type_id
+                if assigned_type and assigned_type != rec.order_id.requested_vehicle_type_id:
+                    _logger.warning(
+                        "Vehicle type mismatch for order %s: requested %s, assigned %s",
+                        rec.order_id.name,
+                        rec.order_id.requested_vehicle_type_id.name,
+                        assigned_type.name,
+                    )
 
     @api.model_create_multi
     def create(self, vals_list):
