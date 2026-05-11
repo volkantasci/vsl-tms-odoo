@@ -157,6 +157,33 @@ class TestTransportOrder(TransactionCase):
         })
         self.assertEqual(len(stop.line_ids), 2)
 
+    def test_cargo_product_domain(self):
+        """Cargo category ürünleri stop line'da seçilebilir olmalı,
+        cargo olmayan ürünler seçilememeli."""
+        cargo_categ = self.env.ref('vsl_transport.product_category_cargo', raise_if_not_found=False)
+        self.assertTrue(cargo_categ, "Cargo category should exist")
+
+        cargo_product = self.env['product.product'].create({
+            'name': 'Test Cargo Product',
+            'categ_id': cargo_categ.id,
+            'type': 'product',
+        })
+
+        normal_product = self.env['product.product'].create({
+            'name': 'Test Normal Product',
+            'type': 'product',
+        })
+
+        stop_line = self.env['vsl.transport.stop.line']
+        domain = stop_line._get_cargo_product_domain()
+        self.assertIn('categ_id', str(domain))
+        self.assertIn('child_of', str(domain))
+
+        domain_search = [('categ_id', 'child_of', cargo_categ.ids)]
+        cargo_products = self.env['product.product'].search(domain_search)
+        self.assertIn(cargo_product.id, cargo_products.ids)
+        self.assertNotIn(normal_product.id, cargo_products.ids)
+
 
 class TestCarrierDocument(TransactionCase):
 
