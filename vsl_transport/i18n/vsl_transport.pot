@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 19.0\n"
-"POT-Creation-Date: 2026-05-07\n"
+"POT-Creation-Date: 2026-05-10\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
@@ -36,4 +36,54 @@ msgstr ""
 #. module: vsl_transport
 #: model:ir.model,name:vsl_transport.model_vsl_transport_invoice_wizard
 msgid "Transport Invoice Wizard"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_profile
+msgid "Driver Profile"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_document
+msgid "Driver Document"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_document
+msgid "Vehicle Document"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_type
+msgid "Vehicle Type"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_trailer_class
+msgid "Vehicle Trailer Class"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_case_type
+msgid "Vehicle Case Type"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_pass_system
+msgid "Vehicle Pass System"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_ownership
+msgid "Vehicle Ownership Status"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_type
+msgid "Driver Type"
+msgstr ""
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_location
+msgid "Location"
 msgstr ""

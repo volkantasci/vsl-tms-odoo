@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: vsl_transport 19.0.1.0.0\n"
-"POT-Creation-Date: 2026-05-07\n"
-"PO-Revision-Date: 2026-05-07\n"
+"POT-Creation-Date: 2026-05-10\n"
+"PO-Revision-Date: 2026-05-10\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -40,6 +40,56 @@ msgstr "Tedarikçi Evrakı"
 #: model:ir.model,name:vsl_transport.model_vsl_transport_invoice_wizard
 msgid "Transport Invoice Wizard"
 msgstr "Sevkiyat Fatura Sihirbazı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_profile
+msgid "Driver Profile"
+msgstr "Sürücü Profili"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_document
+msgid "Driver Document"
+msgstr "Sürücü Evrakı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_document
+msgid "Vehicle Document"
+msgstr "Araç Evrakı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_type
+msgid "Vehicle Type"
+msgstr "Araç Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_trailer_class
+msgid "Vehicle Trailer Class"
+msgstr "Araç Dorse Sınıfı"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_case_type
+msgid "Vehicle Case Type"
+msgstr "Araç Kasa Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_pass_system
+msgid "Vehicle Pass System"
+msgstr "Araç Geçiş Sistemi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_vehicle_ownership
+msgid "Vehicle Ownership Status"
+msgstr "Araç Sahiplik Durumu"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_driver_type
+msgid "Driver Type"
+msgstr "Sürücü Tipi"
+
+#. module: vsl_transport
+#: model:ir.model,name:vsl_transport.model_vsl_location
+msgid "Location"
+msgstr "Lokasyon"
 
 #. module: vsl_transport
 #: model:ir.actions.act_window,name:vsl_transport.action_vsl_transport_order
@@ -81,7 +131,7 @@ msgstr "Müşteri"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__customer_order_ref
-msgid "Müşteri Sipariş No"
+msgid "Customer Order Reference"
 msgstr "Müşteri Sipariş No"
 
 #. module: vsl_transport
@@ -125,6 +175,16 @@ msgid "Notes"
 msgstr "Notlar"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__loading_location_id
+msgid "Loading Location"
+msgstr "Yükleme Lokasyonu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__unloading_location_id
+msgid "Unloading Location"
+msgstr "Boşaltma Lokasyonu"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__stop_ids
 msgid "Stops"
 msgstr "Duraklar"
@@ -145,6 +205,46 @@ msgid "Company"
 msgstr "Şirket"
 
 #. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__draft
+msgid "Draft"
+msgstr "Taslak"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__open
+msgid "Open"
+msgstr "Açık"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__assigned
+msgid "Assigned"
+msgstr "Atandı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__loading
+msgid "Loading"
+msgstr "Yüklemede"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__in_transit
+msgid "In Transit"
+msgstr "Yolda"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__delivered
+msgid "Delivered"
+msgstr "Teslim Edildi"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__invoiced
+msgid "Invoiced"
+msgstr "Faturalandı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__cancelled
+msgid "Cancelled"
+msgstr "İptal"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__order_id
 msgid "Transport Order"
 msgstr "Sevkiyat Emri"
@@ -161,8 +261,8 @@ msgstr "Durak Tipi"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__address_id
-msgid "Address"
-msgstr "Adres"
+msgid "Customer / Address"
+msgstr "Müşteri / Adres"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__planned_date
@@ -180,6 +280,41 @@ msgid "Stop Lines"
 msgstr "Durak Kalemleri"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__state
+msgid "Status"
+msgstr "Durum"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__notes
+msgid "Notes"
+msgstr "Notlar"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__stop_type__loading
+msgid "Loading"
+msgstr "Yükleme"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__stop_type__unloading
+msgid "Unloading"
+msgstr "Boşaltma"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__pending
+msgid "Pending"
+msgstr "Beklemede"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__done
+msgid "Done"
+msgstr "Tamamlandı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__cancelled
+msgid "Cancelled"
+msgstr "İptal"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop_line__stop_id
 msgid "Stop"
 msgstr "Durak"
@@ -188,6 +323,11 @@ msgstr "Durak"
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop_line__customer_id
 msgid "Customer"
 msgstr "Müşteri"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop_line__product_id
+msgid "Product"
+msgstr "Ürün"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop_line__product_desc
@@ -235,6 +375,26 @@ msgid "Status"
 msgstr "Durum"
 
 #. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__assigned
+msgid "Assigned"
+msgstr "Atandı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__departed
+msgid "Departed"
+msgstr "Yola Çıktı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__completed
+msgid "Completed"
+msgstr "Tamamlandı"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__cancelled
+msgid "Cancelled"
+msgstr "İptal"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_carrier_document__carrier_id
 msgid "Carrier"
 msgstr "Nakliyeci"
@@ -245,7 +405,7 @@ msgid "Document Type"
 msgstr "Evrak Tipi"
 
 #. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_carrier_document__attachment_id
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_carrier_document__datas
 msgid "File"
 msgstr "Dosya"
 
@@ -263,116 +423,6 @@ msgstr "Son Geçerlilik Tarihi"
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_carrier_document__state
 msgid "Status"
 msgstr "Durum"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__is_carrier
-#: model:ir.model.fields,field_description:vsl_transport.field_res_users__is_carrier
-msgid "Carrier / Supplier"
-msgstr "Nakliyeci / Tedarikçi"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_tax_office
-#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_tax_office
-msgid "Tax Office"
-msgstr "Vergi Dairesi"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_tax_number
-#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_tax_number
-msgid "Tax Number"
-msgstr "Vergi Numarası"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_document_ids
-#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_document_ids
-msgid "Documents"
-msgstr "Evraklar"
-
-#. module: vsl_transport
-#: model:ir.model.fields,help:vsl_transport.field_res_partner__is_carrier
-#: model:ir.model.fields,help:vsl_transport.field_res_users__is_carrier
-msgid "This partner is a transport carrier/supplier."
-msgstr "Bu iş ortağı bir nakliyecidir."
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__draft
-msgid "Draft"
-msgstr "Taslak"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__open
-msgid "Open"
-msgstr "Açık"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__assigned
-msgid "Assigned"
-msgstr "Atandı"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__loading
-msgid "Loading"
-msgstr "Yüklemede"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__in_transit
-msgid "In Transit"
-msgstr "Yolda"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__delivered
-msgid "Delivered"
-msgstr "Teslim Edildi"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__invoiced
-msgid "Invoiced"
-msgstr "Faturalandı"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_order__state__cancelled
-msgid "Cancelled"
-msgstr "İptal"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__stop_type__loading
-msgid "Loading"
-msgstr "Yükleme"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__stop_type__unloading
-msgid "Unloading"
-msgstr "Boşaltma"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__pending
-msgid "Pending"
-msgstr "Beklemede"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__done
-msgid "Done"
-msgstr "Tamamlandı"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_transport_stop__state__cancelled
-msgid "Cancelled"
-msgstr "İptal"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__assigned
-msgid "Assigned"
-msgstr "Atandı"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__departed
-msgid "Departed"
-msgstr "Yola Çıktı"
-
-#. module: vsl_transport
-#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_assignment__state__completed
-msgid "Completed"
-msgstr "Tamamlandı"
 
 #. module: vsl_transport
 #: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_carrier_document__doc_type__driving_license
@@ -410,9 +460,239 @@ msgid "Expired"
 msgstr "Süresi Doldu"
 
 #. module: vsl_transport
-#: model:ir.model.fields,help:vsl_transport.field_vsl_carrier_document__attachment_id
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__partner_id
+msgid "Driver / Partner"
+msgstr "Sürücü / İş Ortağı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__driver_type_id
+msgid "Driver Type"
+msgstr "Sürücü Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_number
+msgid "License Number"
+msgstr "Ehliyet Numarası"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_class
+msgid "License Class"
+msgstr "Ehliyet Sınıfı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__document_ids
+msgid "Documents"
+msgstr "Evraklar"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__status
+msgid "Status"
+msgstr "Durum"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_profile__status__active
+msgid "Active"
+msgstr "Aktif"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_profile__status__inactive
+msgid "Inactive"
+msgstr "Pasif"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_profile__status__on_leave
+msgid "On Leave"
+msgstr "İzinli"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__driver_id
+msgid "Driver"
+msgstr "Sürücü"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__doc_type
+msgid "Document Type"
+msgstr "Evrak Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__datas
 msgid "File"
 msgstr "Dosya"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__issue_date
+msgid "Issue Date"
+msgstr "Düzenlenme Tarihi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__expiry_date
+msgid "Expiry Date"
+msgstr "Son Geçerlilik Tarihi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__state
+msgid "Status"
+msgstr "Durum"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__notes
+msgid "Notes"
+msgstr "Notlar"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__doc_type__driving_license
+msgid "Driving License"
+msgstr "Ehliyet"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__doc_type__src_certificate
+msgid "SRC Certificate"
+msgstr "SRC Belgesi"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__doc_type__psychotechnic
+msgid "Psychotechnic"
+msgstr "Psikoteknik"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__doc_type__other
+msgid "Other"
+msgstr "Diğer"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__state__valid
+msgid "Valid"
+msgstr "Geçerli"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_driver_document__state__expired
+msgid "Expired"
+msgstr "Süresi Doldu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__vehicle_id
+msgid "Vehicle"
+msgstr "Araç"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__doc_type
+msgid "Document Type"
+msgstr "Evrak Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__datas
+msgid "File"
+msgstr "Dosya"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__issue_date
+msgid "Issue Date"
+msgstr "Düzenlenme Tarihi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__expiry_date
+msgid "Expiry Date"
+msgstr "Son Geçerlilik Tarihi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__state
+msgid "Status"
+msgstr "Durum"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__notes
+msgid "Notes"
+msgstr "Notlar"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__doc_type__insurance
+msgid "Insurance"
+msgstr "Sigorta"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__doc_type__vehicle_registration
+msgid "Vehicle Registration"
+msgstr "Ruhsat"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__doc_type__inspection
+msgid "Inspection"
+msgstr "Muayene"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__doc_type__other
+msgid "Other"
+msgstr "Diğer"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__state__valid
+msgid "Valid"
+msgstr "Geçerli"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__vsl_vehicle_document__state__expired
+msgid "Expired"
+msgstr "Süresi Doldu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_vehicle_type_id
+msgid "Vehicle Type"
+msgstr "Araç Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_trailer_class_id
+msgid "Trailer Class"
+msgstr "Dorse Sınıfı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_case_type_id
+msgid "Case Type"
+msgstr "Kasa Tipi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_pass_system_id
+msgid "Pass System"
+msgstr "Geçiş Sistemi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_ownership_id
+msgid "Ownership Status"
+msgstr "Sahiplik Durumu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_capacity
+msgid "Capacity (ton)"
+msgstr "Kapasite (ton)"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_transport_status
+msgid "Transport Status"
+msgstr "Taşımacılık Durumu"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_fleet_vehicle__vsl_document_ids
+msgid "Documents"
+msgstr "Evraklar"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__fleet_vehicle__vsl_transport_status__available
+msgid "Available"
+msgstr "Müsait"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__fleet_vehicle__vsl_transport_status__on_route
+msgid "On Route"
+msgstr "Yolda"
+
+#. module: vsl_transport
+#: model:ir.model.fields.selection,name:vsl_transport.selection__fleet_vehicle__vsl_transport_status__maintenance
+msgid "Maintenance"
+msgstr "Bakımda"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__order_id
@@ -430,9 +710,9 @@ msgid "Customer Invoice Amount"
 msgstr "Müşteri Fatura Tutarı"
 
 #. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice
-msgid "Create Supplier Invoice"
-msgstr "Tedarikçi Faturası Oluştur"
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__customer_invoice_description
+msgid "Customer Invoice Description"
+msgstr "Müşteri Fatura Açıklaması"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_id
@@ -440,9 +720,59 @@ msgid "Supplier / Carrier"
 msgstr "Tedarikçi / Nakliyeci"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice
+msgid "Create Supplier Invoice"
+msgstr "Tedarikçi Faturası Oluştur"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice_amount
 msgid "Supplier Invoice Amount"
 msgstr "Tedarikçi Fatura Tutarı"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice_description
+msgid "Supplier Invoice Description"
+msgstr "Tedarikçi Fatura Açıklaması"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__currency_id
+msgid "Currency"
+msgstr "Para Birimi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__is_carrier
+#: model:ir.model.fields,field_description:vsl_transport.field_res_users__is_carrier
+msgid "Carrier / Supplier"
+msgstr "Nakliyeci / Tedarikçi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_tax_office
+#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_tax_office
+msgid "Tax Office"
+msgstr "Vergi Dairesi"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_tax_number
+#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_tax_number
+msgid "Tax Number"
+msgstr "Vergi Numarası"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_res_partner__carrier_document_ids
+#: model:ir.model.fields,field_description:vsl_transport.field_res_users__carrier_document_ids
+msgid "Documents"
+msgstr "Evraklar"
+
+#. module: vsl_transport
+#: model:ir.model.fields,help:vsl_transport.field_res_partner__is_carrier
+#: model:ir.model.fields,help:vsl_transport.field_res_users__is_carrier
+msgid "This partner is a transport carrier/supplier."
+msgstr "Bu iş ortağı bir nakliyecidir."
+
+#. module: vsl_transport
+#: model:ir.model.constraint,message:vsl_transport.constraint_vsl_vehicle_assignment__check_vehicle_info
+msgid "You must provide either a fleet vehicle or an external plate."
+msgstr "Bir filo aracı veya harici plaka bilgisi girilmelidir."
 
 #. module: vsl_transport
 #: code:addons/vsl_transport/models/transport_order.py:0
@@ -520,6 +850,11 @@ msgid "You must provide either a fleet vehicle or an external plate."
 msgstr "Bir filo aracı veya harici plaka bilgisi girilmelidir."
 
 #. module: vsl_transport
+#: code:addons/vsl_transport/models/vehicle_assignment.py:0
+msgid "A transport order can have at most 2 vehicle assignments."
+msgstr "Bir sevkiyat emri en fazla 2 araç atamasına sahip olabilir."
+
+#. module: vsl_transport
 #: code:addons/vsl_transport/wizards/transport_invoice_wizard.py:0
 msgid "Invoices can only be created for delivered orders."
 msgstr "Faturalar sadece teslim edilmiş sevkiyatlar için oluşturulabilir."
@@ -533,21 +868,6 @@ msgstr "Sevkiyat emrinde müşteri tanımlanmamış."
 #: code:addons/vsl_transport/wizards/transport_invoice_wizard.py:0
 msgid "Transport Service"
 msgstr "Taşıma Hizmeti"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__customer_invoice_description
-msgid "Customer Invoice Description"
-msgstr "Müşteri Fatura Açıklaması"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice_description
-msgid "Supplier Invoice Description"
-msgstr "Tedarikçi Fatura Açıklaması"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__currency_id
-msgid "Currency"
-msgstr "Para Birimi"
 
 #. module: vsl_transport
 #: model:ir.actions.act_window,name:vsl_transport.action_vsl_transport_invoice_wizard
@@ -573,96 +893,6 @@ msgstr "Taşımacılık Yöneticisi"
 #: model:res.groups,name:vsl_transport.group_vsl_garage_operator
 msgid "Garage Operator"
 msgstr "Garaj Operatörü"
-
-#. module: vsl_transport
-#: model:ir.model.constraint,message:vsl_transport.constraint_vsl_vehicle_assignment__check_vehicle_info
-msgid "You must provide either a fleet vehicle or an external plate."
-msgstr "Bir filo aracı veya harici plaka bilgisi girilmelidir."
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_type
-msgid "Vehicle Type"
-msgstr "Araç Tipi"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_trailer_class
-msgid "Vehicle Trailer Class"
-msgstr "Araç Dorse Sınıfı"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_case_type
-msgid "Vehicle Case Type"
-msgstr "Araç Kasa Tipi"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_pass_system
-msgid "Vehicle Pass System"
-msgstr "Araç Geçiş Sistemi"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_ownership
-msgid "Vehicle Ownership Status"
-msgstr "Araç Sahiplik Durumu"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_driver_type
-msgid "Driver Type"
-msgstr "Sürücü Tipi"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_driver_document
-msgid "Driver Document"
-msgstr "Sürücü Evrakı"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_driver_profile
-msgid "Driver Profile"
-msgstr "Sürücü Profili"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_vehicle_document
-msgid "Vehicle Document"
-msgstr "Araç Evrakı"
-
-#. module: vsl_transport
-#: model:ir.model,name:vsl_transport.model_vsl_location
-msgid "Location"
-msgstr "Lokasyon"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__partner_id
-msgid "Driver / Partner"
-msgstr "Sürücü / İş Ortağı"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_number
-msgid "License Number"
-msgstr "Ehliyet Numarası"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__license_class
-msgid "License Class"
-msgstr "Ehliyet Sınıfı"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__phone
-msgid "Phone"
-msgstr "Telefon"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_profile__document_ids
-msgid "Documents"
-msgstr "Evraklar"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_driver_document__driver_id
-msgid "Driver"
-msgstr "Sürücü"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_vehicle_document__vehicle_id
-msgid "Vehicle"
-msgstr "Araç"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__name
@@ -708,11 +938,6 @@ msgstr "Yetkili Telefon"
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_location__features
 msgid "Features"
 msgstr "Özellikler"
-
-#. module: vsl_transport
-#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_stop__location_id
-msgid "Location"
-msgstr "Lokasyon"
 
 #. module: vsl_transport
 #: model:ir.model.fields,help:vsl_transport.field_vsl_location__partner_id

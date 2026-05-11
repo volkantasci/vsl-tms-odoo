@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class VslTransportStop(models.Model):
@@ -23,11 +23,11 @@ class VslTransportStop(models.Model):
     )
     address_id = fields.Many2one(
         "res.partner",
-        string="Müşteri / Adres",
+        string="Customer / Address",
         required=True,
         domain=[("parent_id", "=", False)],
     )
-    planned_date = fields.Datetime(string="Planlanan Tarih")
+    planned_date = fields.Datetime(string="Planned Date")
     actual_date = fields.Datetime(string="Actual Date")
     state = fields.Selection(
         [
@@ -60,13 +60,24 @@ class VslTransportStopLine(models.Model):
     )
     customer_id = fields.Many2one(
         "res.partner",
-        string="Müşteri",
+        string="Customer",
         domain=[("parent_id", "=", False)],
     )
     product_id = fields.Many2one(
         "product.product",
-        string="Ürün",
+        string="Product",
+        domain=lambda self: self._get_cargo_product_domain(),
     )
-    product_desc = fields.Char(string="Ürün Açıklaması")
-    quantity = fields.Float(string="Miktar")
-    weight = fields.Float(string="Ağırlık (kg)")
+
+    @api.model
+    def _get_cargo_product_domain(self):
+        cargo_categ = self.env.ref(
+            'vsl_transport.product_category_cargo', raise_if_not_found=False
+        )
+        if cargo_categ:
+            return [('categ_id', 'child_of', cargo_categ.ids)]
+        return []
+
+    product_desc = fields.Char(string="Product Description")
+    quantity = fields.Float(string="Quantity")
+    weight = fields.Float(string="Weight (kg)")

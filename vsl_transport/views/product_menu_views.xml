@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Regular products action: excludes cargo category -->
+    <record id="action_regular_products" model="ir.actions.act_window">
+        <field name="name">Ürünler</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain" eval="[('categ_id', '!=', ref('vsl_transport.product_category_cargo'))]"/>
+    </record>
+
+    <!-- Cargo products action: only cargo category -->
+    <record id="action_cargo_products" model="ir.actions.act_window">
+        <field name="name">Sevkiyat Yükleri</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain" eval="[('categ_id', '=', ref('vsl_transport.product_category_cargo'))]"/>
+    </record>
+
+    <!-- Override standard Products menu action -->
+    <record id="stock.menu_product_variant_config_stock" model="ir.ui.menu">
+        <field name="action" ref="vsl_transport.action_regular_products"/>
+    </record>
+
+    <!-- Add cargo products menu as sibling under Products parent -->
+    <menuitem id="menu_product_cargo"
+              name="Sevkiyat Yükleri"
+              parent="stock.menu_stock_inventory_control"
+              action="vsl_transport.action_cargo_products"
+              sequence="3"/>
+
+</odoo>
