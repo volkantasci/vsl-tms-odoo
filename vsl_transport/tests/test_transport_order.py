@@ -179,8 +179,7 @@ class TestTransportOrder(TransactionCase):
         self.assertIn('categ_id', str(domain))
         self.assertIn('child_of', str(domain))
 
-        domain_search = [('categ_id', 'child_of', cargo_categ.ids)]
-        cargo_products = self.env['product.product'].search(domain_search)
+        cargo_products = self.env['product.product'].search(domain)
         self.assertIn(cargo_product.id, cargo_products.ids)
         self.assertNotIn(normal_product.id, cargo_products.ids)
 
