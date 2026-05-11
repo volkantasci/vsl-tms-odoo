@@ -10,7 +10,7 @@
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="customer_order_ref"/>
-                            <field name="requested_vehicle_type_id"/>
+                <field name="requested_vehicle_type_id"/>
                 <field name="loading_location_id"/>
                 <field name="unloading_location_id"/>
                 <field name="state" widget="badge"/>
