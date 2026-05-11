@@ -6,7 +6,7 @@
         <field name="name">Ürünler</field>
         <field name="res_model">product.template</field>
         <field name="view_mode">kanban,list,form</field>
-        <field name="domain" eval="[('categ_id', '!=', ref('vsl_transport.product_category_cargo'))]"/></field>
+        <field name="domain" eval="[('categ_id', '!=', ref('vsl_transport.product_category_cargo'))]"/>
     </record>
 
     <!-- Cargo products action: only cargo category -->
@@ -14,7 +14,7 @@
         <field name="name">Sevkiyat Yükleri</field>
         <field name="res_model">product.template</field>
         <field name="view_mode">kanban,list,form</field>
-        <field name="domain" eval="[('categ_id', '=', ref('vsl_transport.product_category_cargo'))]"/></field>
+        <field name="domain" eval="[('categ_id', '=', ref('vsl_transport.product_category_cargo'))]"/>
     </record>
 
     <!-- Override standard Products menu action -->
