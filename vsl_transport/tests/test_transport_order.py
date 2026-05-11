@@ -166,12 +166,12 @@ class TestTransportOrder(TransactionCase):
         cargo_product = self.env['product.product'].create({
             'name': 'Test Cargo Product',
             'categ_id': cargo_categ.id,
-            'type': 'product',
+            'type': 'consu',
         })
 
         normal_product = self.env['product.product'].create({
             'name': 'Test Normal Product',
-            'type': 'product',
+            'type': 'consu',
         })
 
         stop_line = self.env['vsl.transport.stop.line']
