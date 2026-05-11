@@ -10,6 +10,7 @@
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="customer_order_ref"/>
+                            <field name="requested_vehicle_type_id"/>
                 <field name="loading_location_id"/>
                 <field name="unloading_location_id"/>
                 <field name="state" widget="badge"/>
@@ -64,6 +65,7 @@
                         <group string="Müşteri ve Tarihler">
                             <field name="customer_id"/>
                             <field name="customer_order_ref"/>
+                            <field name="requested_vehicle_type_id"/>
                             <field name="planned_date_start"/>
                             <field name="planned_date_end"/>
                         </group>
@@ -104,6 +106,7 @@
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="customer_order_ref"/>
+                            <field name="requested_vehicle_type_id"/>
                 <filter name="draft" string="Taslak" domain="[('state', '=', 'draft')]"/>
                 <filter name="open" string="Açık" domain="[('state', '=', 'open')]"/>
                 <filter name="assigned" string="Atandı" domain="[('state', '=', 'assigned')]"/>
