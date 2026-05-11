@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class VslTransportStop(models.Model):
@@ -66,7 +66,18 @@ class VslTransportStopLine(models.Model):
     product_id = fields.Many2one(
         "product.product",
         string="Product",
+        domain=lambda self: self._get_cargo_product_domain(),
     )
+
+    @api.model
+    def _get_cargo_product_domain(self):
+        cargo_categ = self.env.ref(
+            'vsl_transport.product_category_cargo', raise_if_not_found=False
+        )
+        if cargo_categ:
+            return [('categ_id', 'child_of', cargo_categ.ids)]
+        return []
+
     product_desc = fields.Char(string="Product Description")
     quantity = fields.Float(string="Quantity")
     weight = fields.Float(string="Weight (kg)")
