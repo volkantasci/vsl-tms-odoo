@@ -79,6 +79,10 @@ class VslTransportOrder(models.Model):
         string="Stops",
         copy=True,
     )
+    requested_vehicle_type_id = fields.Many2one(
+        "vsl.vehicle.type",
+        string="İstenen Araç Cinsi",
+    )
     assignment_ids = fields.One2many(
         "vsl.vehicle.assignment",
         "order_id",
