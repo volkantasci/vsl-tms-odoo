@@ -10,6 +10,7 @@ Odoo 19 için geliştirilmiş, Türkiye lojistik sektörüne özel uçtan uca se
 - **Sürücü Evrak Yönetimi** — Ehliyet, SRC belgesi, psikoteknik takibi ve son kullanma kontrolü
 - **Araç Evrak Yönetimi** — Sigorta, ruhsat, muayene takibi ve son kullanma kontrolü
 - **Tedarikçi Evrak Yönetimi** — Ehliyet, ruhsat, sigorta, SRC belgesi takibi ve son kullanma kontrolü
+- **Sevkiyat Evrak Yönetimi** — CMR, konşimento, paket listesi, gümrük beyannamesi, teslim tutanağı, fatura ve diğer evraklar
 - **Geçmiş Fiyat Sorgulama** — Aynı rotadaki geçmiş sevkiyatların fiyatlarına hızlı erişim
 - **Çift Yönlü Fatura** — Müşteri faturası (out_invoice) ve tedarikçi faturası (in_invoice) oluşturma sihirbazı
 - **Pozisyon Bilgileri** — Yükleme ve boşaltma lokasyonları otomatik hesaplama
@@ -83,6 +84,8 @@ docker compose -f ~/dev/odoo/docker-compose.yml run --rm web odoo \
 | `vsl.driver.document` | Sürücü evrakı (ehliyet/src/psikoteknik) |
 | `vsl.vehicle.document` | Araç evrakı (sigorta/ruhsat/muayene) |
 | `vsl.carrier.document` | Tedarikçi evrakı |
+| `vsl.transport.document` | Sevkiyat evrakı (CMR, konşimento, paket listesi, vb.) |
+| `vsl.transport.document.type` | Evrak tipi (yapılandırılabilir) |
 | `fleet.vehicle` (genişletme) | vsl_vehicle_type_id, vsl_trailer_class_id, vsl_capacity, vsl_transport_status |
 | `res.partner` (genişletme) | is_carrier, vergi dairesi, vergi no |
 
@@ -118,6 +121,7 @@ vsl_transport/
 │   ├── driver_document.py        # Sürücü evrakı
 │   ├── vehicle_document.py       # Araç evrakı
 │   ├── carrier_document.py       # Tedarikçi evrakı
+│   ├── transport_document.py     # Sevkiyat evrakı
 │   ├── fleet_vehicle.py          # fleet.vehicle genişletmesi
 │   └── res_partner.py            # res.partner genişletmesi
 ├── views/                       # XML görünüm tanımları
@@ -128,6 +132,7 @@ vsl_transport/
 │   ├── driver_views.xml
 │   ├── vehicle_document_views.xml
 │   ├── carrier_document_views.xml
+│   ├── transport_document_views.xml
 │   ├── fleet_vehicle_views.xml
 │   ├── res_partner_views.xml
 │   └── menu_views.xml

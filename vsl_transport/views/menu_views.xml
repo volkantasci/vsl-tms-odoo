@@ -58,4 +58,10 @@
               action="account.res_partner_action_customer"
               sequence="30"/>
 
+    <menuitem id="menu_vsl_config_document_types"
+              name="Evrak Tipleri"
+              parent="menu_vsl_transport_config"
+              action="action_vsl_transport_document_type"
+              sequence="40"/>
+
 </odoo>

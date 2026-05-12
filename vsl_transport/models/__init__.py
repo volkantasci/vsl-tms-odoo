@@ -2,6 +2,7 @@ from . import res_partner
 from . import carrier_document
 from . import transport_order
 from . import transport_stop
+from . import transport_document
 from . import vehicle_assignment
 from . import vehicle_reference
 from . import driver_type
