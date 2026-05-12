@@ -99,6 +99,15 @@ class VslTransportOrder(models.Model):
         string="Documents",
         copy=True,
     )
+    has_dispatch_note = fields.Boolean(
+        compute="_compute_has_dispatch_note",
+        store=True,
+    )
+    dispatch_note_display = fields.Char(
+        string="İrsaliye",
+        compute="_compute_dispatch_note_display",
+        store=True,
+    )
     company_id = fields.Many2one(
         "res.company",
         string="Company",
@@ -126,6 +135,22 @@ class VslTransportOrder(models.Model):
             unloading_stops = order.stop_ids.filtered(lambda s: s.stop_type == "unloading")
             order.loading_location_id = loading_stops[:1].address_id if loading_stops else False
             order.unloading_location_id = unloading_stops[-1:].address_id if unloading_stops else False
+
+    @api.depends("document_ids.doc_type_id.name")
+    def _compute_has_dispatch_note(self):
+        for order in self:
+            order.has_dispatch_note = any(
+                doc.doc_type_id.name == "İrsaliye"
+                for doc in order.document_ids
+            )
+
+    @api.depends("document_ids.doc_type_id.name")
+    def _compute_dispatch_note_display(self):
+        for order in self:
+            order.dispatch_note_display = (
+                "EVET" if any(doc.doc_type_id.name == "İrsaliye" for doc in order.document_ids)
+                else "HAYIR"
+            )
 
     def action_open_assignment_wizard(self):
         self.ensure_one()

@@ -17,7 +17,10 @@
                 <field name="planned_date_start"/>
                 <field name="planned_date_end"/>
                 <field name="amount_total" sum="Total"/>
-                <field name="currency_id" invisible="1"/>
+                <field name="dispatch_note_display" string="İrsaliye"
+                        decoration-success="dispatch_note_display == 'EVET'"
+                        decoration-danger="dispatch_note_display == 'HAYIR'"
+                        widget="badge"/>
             </list>
         </field>
     </record>
