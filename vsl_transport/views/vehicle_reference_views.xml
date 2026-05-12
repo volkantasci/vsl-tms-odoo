@@ -81,4 +81,20 @@
         <field name="view_mode">list</field>
     </record>
 
+    <record id="view_vsl_transport_document_type_list" model="ir.ui.view">
+        <field name="name">vsl.transport.document.type.list</field>
+        <field name="model">vsl.transport.document.type</field>
+        <field name="arch" type="xml">
+            <list string="Evrak Tipleri" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vsl_transport_document_type" model="ir.actions.act_window">
+        <field name="name">Evrak Tipleri</field>
+        <field name="res_model">vsl.transport.document.type</field>
+        <field name="view_mode">list</field>
+    </record>
+
 </odoo>

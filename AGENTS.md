@@ -109,6 +109,8 @@ Sevkiyat Emri (vsl.transport.order)
 │   └── Durak Kalemleri (vsl.transport.stop.line) [1:N, parsiyel yükler]
 ├── Araç Ataması (vsl.vehicle.assignment) [1:N, max 2, araç+sürücü]
 │   └── vsl.vehicle.type (Araç Tipi: Kamyonet, 6 Teker, 10 Teker, 40 Ayak, Çekici, Dorse, Lowbed, Forklift, Vinç)
+├── Evraklar (vsl.transport.document) [1:N, CMR/konşimento/paket listesi vb.]
+│   └── vsl.transport.document.type (Evrak Tipi, yapılandırılabilir)
 └── Faturalar (account.move) [M:N]
 
 Sürücü (vsl.driver.profile) [1:N]

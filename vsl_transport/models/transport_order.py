@@ -93,6 +93,12 @@ class VslTransportOrder(models.Model):
         string="Invoices",
         copy=False,
     )
+    document_ids = fields.One2many(
+        "vsl.transport.document",
+        "order_id",
+        string="Documents",
+        copy=True,
+    )
     company_id = fields.Many2one(
         "res.company",
         string="Company",

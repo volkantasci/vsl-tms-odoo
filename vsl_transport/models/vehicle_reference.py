@@ -39,3 +39,11 @@ class VslVehicleOwnership(models.Model):
     _order = "name"
 
     name = fields.Char(string="Ownership Status", required=True, translate=True)
+
+
+class VslTransportDocumentType(models.Model):
+    _name = "vsl.transport.document.type"
+    _description = "Transport Document Type"
+    _order = "name"
+
+    name = fields.Char(string="Document Type", required=True, translate=True)

@@ -90,6 +90,9 @@
                     <group string="Duraklar (Yükleme / Boşaltma)">
                         <field name="stop_ids"/>
                     </group>
+                    <group string="Evraklar">
+                        <field name="document_ids"/>
+                    </group>
                     <group string="Notlar">
                         <field name="notes"/>
                     </group>

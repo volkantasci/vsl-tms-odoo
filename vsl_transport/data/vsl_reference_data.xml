@@ -71,5 +71,27 @@
             <field name="name">Tedarik</field>
         </record>
 
+        <record id="doc_type_cmr" model="vsl.transport.document.type">
+            <field name="name">CMR</field>
+        </record>
+        <record id="doc_type_bill_of_lading" model="vsl.transport.document.type">
+            <field name="name">Konşimento</field>
+        </record>
+        <record id="doc_type_packing_list" model="vsl.transport.document.type">
+            <field name="name">Paket Listesi</field>
+        </record>
+        <record id="doc_type_customs_declaration" model="vsl.transport.document.type">
+            <field name="name">Gümrük Beyannamesi</field>
+        </record>
+        <record id="doc_type_delivery_note" model="vsl.transport.document.type">
+            <field name="name">Teslim Tutanağı</field>
+        </record>
+        <record id="doc_type_invoice" model="vsl.transport.document.type">
+            <field name="name">Fatura</field>
+        </record>
+        <record id="doc_type_other" model="vsl.transport.document.type">
+            <field name="name">Diğer</field>
+        </record>
+
     </data>
 </odoo>
