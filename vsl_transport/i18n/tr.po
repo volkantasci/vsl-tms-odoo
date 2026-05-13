@@ -200,6 +200,11 @@ msgid "Invoices"
 msgstr "Faturalar"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__document_ids
+msgid "Documents"
+msgstr "Evraklar"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_order__company_id
 msgid "Company"
 msgstr "Şirket"
@@ -715,6 +720,16 @@ msgid "Customer Invoice Description"
 msgstr "Müşteri Fatura Açıklaması"
 
 #. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__customer_product_id
+msgid "Product / Service"
+msgstr "Ürün / Hizmet"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__customer_tax_ids
+msgid "Tax"
+msgstr "Vergi"
+
+#. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_id
 msgid "Supplier / Carrier"
 msgstr "Tedarikçi / Nakliyeci"
@@ -733,6 +748,16 @@ msgstr "Tedarikçi Fatura Tutarı"
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_invoice_description
 msgid "Supplier Invoice Description"
 msgstr "Tedarikçi Fatura Açıklaması"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_product_id
+msgid "Product / Service"
+msgstr "Ürün / Hizmet"
+
+#. module: vsl_transport
+#: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__supplier_tax_ids
+msgid "Tax"
+msgstr "Vergi"
 
 #. module: vsl_transport
 #: model:ir.model.fields,field_description:vsl_transport.field_vsl_transport_invoice_wizard__currency_id

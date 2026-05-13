@@ -8,12 +8,16 @@
             <form string="Fatura Oluştur">
                 <group string="Müşteri Faturası">
                     <field name="customer_invoice"/>
+                    <field name="customer_product_id"/>
+                    <field name="customer_tax_ids" widget="many2many_tags"/>
                     <field name="customer_invoice_amount" widget="monetary"/>
                     <field name="customer_invoice_description"/>
                 </group>
                 <group string="Tedarikçi Faturası">
                     <field name="supplier_invoice"/>
                     <field name="supplier_id"/>
+                    <field name="supplier_product_id"/>
+                    <field name="supplier_tax_ids" widget="many2many_tags"/>
                     <field name="supplier_invoice_amount" widget="monetary"/>
                     <field name="supplier_invoice_description"/>
                 </group>
